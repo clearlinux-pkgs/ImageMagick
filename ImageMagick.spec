@@ -4,7 +4,7 @@
 #
 Name     : ImageMagick
 Version  : 6.9.6
-Release  : 4
+Release  : 6
 URL      : https://www.imagemagick.org/download/ImageMagick-6.9.6-6.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.6-6.tar.xz
 Summary  : Magick++ - C++ API for ImageMagick (ABI @MAGICK_ABI_SUFFIX@)
@@ -92,7 +92,8 @@ lib components for the ImageMagick package.
 
 %build
 export LANG=C
-%configure --disable-static
+export SOURCE_DATE_EPOCH=1485993062
+%configure --disable-static --disable-openmp
 make V=1  %{?_smp_mflags}
 
 %check
@@ -103,6 +104,7 @@ export no_proxy=localhost
 make check || :
 
 %install
+export SOURCE_DATE_EPOCH=1485993062
 rm -rf %{buildroot}
 %make_install
 
@@ -1290,8 +1292,21 @@ rm -rf %{buildroot}
 /usr/include/ImageMagick-6/wand/pixel-wand.h
 /usr/include/ImageMagick-6/wand/stream.h
 /usr/include/ImageMagick-6/wand/wand-view.h
-/usr/lib64/*.so
-/usr/lib64/pkgconfig/*.pc
+/usr/lib64/libMagick++-6.Q16.so
+/usr/lib64/libMagickCore-6.Q16.so
+/usr/lib64/libMagickWand-6.Q16.so
+/usr/lib64/pkgconfig/ImageMagick++-6.Q16.pc
+/usr/lib64/pkgconfig/ImageMagick++.pc
+/usr/lib64/pkgconfig/ImageMagick-6.Q16.pc
+/usr/lib64/pkgconfig/ImageMagick.pc
+/usr/lib64/pkgconfig/Magick++-6.Q16.pc
+/usr/lib64/pkgconfig/Magick++.pc
+/usr/lib64/pkgconfig/MagickCore-6.Q16.pc
+/usr/lib64/pkgconfig/MagickCore.pc
+/usr/lib64/pkgconfig/MagickWand-6.Q16.pc
+/usr/lib64/pkgconfig/MagickWand.pc
+/usr/lib64/pkgconfig/Wand-6.Q16.pc
+/usr/lib64/pkgconfig/Wand.pc
 
 %files doc
 %defattr(-,root,root,-)
@@ -1299,4 +1314,9 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libMagick++-6.Q16.so.6
+/usr/lib64/libMagick++-6.Q16.so.6.0.0
+/usr/lib64/libMagickCore-6.Q16.so.2
+/usr/lib64/libMagickCore-6.Q16.so.2.0.0
+/usr/lib64/libMagickWand-6.Q16.so.2
+/usr/lib64/libMagickWand-6.Q16.so.2.0.0
