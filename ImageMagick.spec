@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 6.9.7
-Release  : 8
+Release  : 9
 URL      : https://www.imagemagick.org/download/ImageMagick-6.9.7-8.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.7-8.tar.xz
 Source99 : https://www.imagemagick.org/download/ImageMagick-6.9.7-8.tar.xz.asc
@@ -95,7 +95,11 @@ lib components for the ImageMagick package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1487017635
+export SOURCE_DATE_EPOCH=1487351048
+export CFLAGS="$CFLAGS -fstack-protector-strong "
+export FCFLAGS="$CFLAGS -fstack-protector-strong "
+export FFLAGS="$CFLAGS -fstack-protector-strong "
+export CXXFLAGS="$CXXFLAGS -fstack-protector-strong "
 %configure --disable-static --disable-openmp
 make V=1  %{?_smp_mflags}
 
@@ -107,7 +111,7 @@ export no_proxy=localhost
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1487017635
+export SOURCE_DATE_EPOCH=1487351048
 rm -rf %{buildroot}
 %make_install
 
