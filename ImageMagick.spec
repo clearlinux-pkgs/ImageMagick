@@ -6,10 +6,10 @@
 #
 Name     : ImageMagick
 Version  : 6.9.7
-Release  : 9
-URL      : https://www.imagemagick.org/download/ImageMagick-6.9.7-8.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.7-8.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-6.9.7-8.tar.xz.asc
+Release  : 10
+URL      : https://www.imagemagick.org/download/ImageMagick-6.9.7-10.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.7-10.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-6.9.7-10.tar.xz.asc
 Summary  : Magick++ - C++ API for ImageMagick (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -91,11 +91,11 @@ lib components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-6.9.7-8
+%setup -q -n ImageMagick-6.9.7-10
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1487351048
+export SOURCE_DATE_EPOCH=1488754849
 export CFLAGS="$CFLAGS -fstack-protector-strong "
 export FCFLAGS="$CFLAGS -fstack-protector-strong "
 export FFLAGS="$CFLAGS -fstack-protector-strong "
@@ -111,7 +111,7 @@ export no_proxy=localhost
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1487351048
+export SOURCE_DATE_EPOCH=1488754849
 rm -rf %{buildroot}
 %make_install
 
@@ -303,6 +303,7 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-6/www/advanced-unix-installation.html
 /usr/share/doc/ImageMagick-6/www/advanced-windows-installation.html
 /usr/share/doc/ImageMagick-6/www/animate.html
+/usr/share/doc/ImageMagick-6/www/api.html
 /usr/share/doc/ImageMagick-6/www/api/Image++.html
 /usr/share/doc/ImageMagick-6/www/api/MagickCore/ImageMagick_8h-source.html
 /usr/share/doc/ImageMagick-6/www/api/MagickCore/ImageMagick_8h.html
@@ -1075,6 +1076,7 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-6/www/api/version.html
 /usr/share/doc/ImageMagick-6/www/api/wand-view.html
 /usr/share/doc/ImageMagick-6/www/architecture.html
+/usr/share/doc/ImageMagick-6/www/binary-releases.html
 /usr/share/doc/ImageMagick-6/www/changelog.html
 /usr/share/doc/ImageMagick-6/www/cipher.html
 /usr/share/doc/ImageMagick-6/www/color-management.html
