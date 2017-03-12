@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 6.9.7
-Release  : 10
-URL      : https://www.imagemagick.org/download/ImageMagick-6.9.7-10.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.7-10.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-6.9.7-10.tar.xz.asc
+Version  : 6.9.8.0
+Release  : 11
+URL      : https://www.imagemagick.org/download/ImageMagick-6.9.8-0.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.8-0.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-6.9.8-0.tar.xz.asc
 Summary  : Magick++ - C++ API for ImageMagick (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -91,11 +91,11 @@ lib components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-6.9.7-10
+%setup -q -n ImageMagick-6.9.8-0
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1488754849
+export SOURCE_DATE_EPOCH=1489280872
 export CFLAGS="$CFLAGS -fstack-protector-strong "
 export FCFLAGS="$CFLAGS -fstack-protector-strong "
 export FFLAGS="$CFLAGS -fstack-protector-strong "
@@ -111,13 +111,13 @@ export no_proxy=localhost
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1488754849
+export SOURCE_DATE_EPOCH=1489280872
 rm -rf %{buildroot}
 %make_install
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ImageMagick-6.9.7/config-Q16/configure.xml
+/usr/lib64/ImageMagick-6.9.8/config-Q16/configure.xml
 
 %files bin
 %defattr(-,root,root,-)

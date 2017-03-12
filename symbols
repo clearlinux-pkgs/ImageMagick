@@ -1370,6 +1370,7 @@ libMagick++-6.Q16.so.7:_ZN6Magick5Image8tileNameERKNSt7__cxx1112basic_stringIcSt
 libMagick++-6.Q16.so.7:_ZN6Magick5Image8vignetteEddll
 libMagick++-6.Q16.so.7:_ZN6Magick5Image9antiAliasEb
 libMagick++-6.Q16.so.7:_ZN6Magick5Image9attenuateEd
+libMagick++-6.Q16.so.7:_ZN6Magick5Image9attributeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc
 libMagick++-6.Q16.so.7:_ZN6Magick5Image9attributeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
 libMagick++-6.Q16.so.7:_ZN6Magick5Image9autoGammaEv
 libMagick++-6.Q16.so.7:_ZN6Magick5Image9autoLevelEv
@@ -3369,6 +3370,7 @@ libMagickCore-6.Q16.so.4:RegisterPCXImage
 libMagickCore-6.Q16.so.4:RegisterPDBImage
 libMagickCore-6.Q16.so.4:RegisterPDFImage
 libMagickCore-6.Q16.so.4:RegisterPESImage
+libMagickCore-6.Q16.so.4:RegisterPGXImage
 libMagickCore-6.Q16.so.4:RegisterPICTImage
 libMagickCore-6.Q16.so.4:RegisterPIXImage
 libMagickCore-6.Q16.so.4:RegisterPLASMAImage
@@ -3739,6 +3741,7 @@ libMagickCore-6.Q16.so.4:UnregisterPCXImage
 libMagickCore-6.Q16.so.4:UnregisterPDBImage
 libMagickCore-6.Q16.so.4:UnregisterPDFImage
 libMagickCore-6.Q16.so.4:UnregisterPESImage
+libMagickCore-6.Q16.so.4:UnregisterPGXImage
 libMagickCore-6.Q16.so.4:UnregisterPICTImage
 libMagickCore-6.Q16.so.4:UnregisterPIXImage
 libMagickCore-6.Q16.so.4:UnregisterPLASMAImage
