@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 6.9.8.0
-Release  : 11
-URL      : https://www.imagemagick.org/download/ImageMagick-6.9.8-0.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.8-0.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-6.9.8-0.tar.xz.asc
+Version  : 6.9.8.2
+Release  : 12
+URL      : https://www.imagemagick.org/download/ImageMagick-6.9.8-2.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-6.9.8-2.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-6.9.8-2.tar.xz.asc
 Summary  : Magick++ - C++ API for ImageMagick (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -91,11 +91,11 @@ lib components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-6.9.8-0
+%setup -q -n ImageMagick-6.9.8-2
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489280872
+export SOURCE_DATE_EPOCH=1490012444
 export CFLAGS="$CFLAGS -fstack-protector-strong "
 export FCFLAGS="$CFLAGS -fstack-protector-strong "
 export FFLAGS="$CFLAGS -fstack-protector-strong "
@@ -111,7 +111,7 @@ export no_proxy=localhost
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1489280872
+export SOURCE_DATE_EPOCH=1490012444
 rm -rf %{buildroot}
 %make_install
 
