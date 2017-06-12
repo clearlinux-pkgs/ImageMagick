@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.5.3
-Release  : 14
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.5-3.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.5-3.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.5-3.tar.xz.asc
+Version  : 7.0.6.0
+Release  : 15
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.6-0.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.6-0.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.6-0.tar.xz.asc
 Summary  : Magick++ - C++ API for ImageMagick (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -91,11 +91,14 @@ lib components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.5-3
+%setup -q -n ImageMagick-7.0.6-0
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1490127867
+export SOURCE_DATE_EPOCH=1497276302
 export CFLAGS="$CFLAGS -fstack-protector-strong "
 export FCFLAGS="$CFLAGS -fstack-protector-strong "
 export FFLAGS="$CFLAGS -fstack-protector-strong "
@@ -107,17 +110,17 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1490127867
+export SOURCE_DATE_EPOCH=1497276302
 rm -rf %{buildroot}
 %make_install
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ImageMagick-7.0.5/config-Q16HDRI/configure.xml
+/usr/lib64/ImageMagick-7.0.6/config-Q16HDRI/configure.xml
 
 %files bin
 %defattr(-,root,root,-)
