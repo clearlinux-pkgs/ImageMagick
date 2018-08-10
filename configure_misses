@@ -1,10 +1,13 @@
 Configure miss: if malloc debugging is wanted
-Configure miss: whether C compiler accepts -Werror=unknown-warning-option
-Configure miss: whether C++ compiler accepts -Werror=unknown-warning-option
-Configure miss: whether the linker accepts -Wl,-fatal_warnings
 Configure miss: linker lazyload option
-Configure miss: if compiler needs -Werror to reject unknown flags
-Configure miss: if compiler needs -Werror to reject unknown flags
+Configure miss: whether we are using the Microsoft C compiler
+Configure miss: CL/cl.h usability
+Configure miss: CL/cl.h presence
+Configure miss: CL/cl.h
+Configure miss: OpenCL/cl.h usability
+Configure miss: OpenCL/cl.h presence
+Configure miss: OpenCL/cl.h
+Configure miss: OpenCL library
 Configure miss: arm/limits.h usability
 Configure miss: arm/limits.h presence
 Configure miss: arm/limits.h
@@ -25,9 +28,9 @@ Configure miss: sun_prefetch.h
 Configure miss: sys/syslimits.h usability
 Configure miss: sys/syslimits.h presence
 Configure miss: sys/syslimits.h
+Configure miss: locale_t
 Configure miss: _aligned_malloc
 Configure miss: directio
-Configure miss: getexecname
 Configure miss: lltostr
 Configure miss: _NSGetExecutablePath
 Configure miss: _pclose
@@ -57,6 +60,7 @@ Configure miss: FPX_OpenImageByFilename in -lfpx
 Configure miss: if FlashPIX package is complete
 Configure miss: ddjvuapi
 Configure miss: RAQM
+Configure miss: HEIF
 Configure miss: jbig.h usability
 Configure miss: jbig.h presence
 Configure miss: jbig.h
@@ -82,14 +86,12 @@ Configure miss: TIFFReadRGBAStrip in -ltiff
 Configure miss: if TIFF package is complete
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
-Configure miss: google-chrome
-Configure miss: konqueror
-Configure miss: lynx
 Configure miss: gsx
 Configure miss: gsc
 Configure miss: gs
 Configure miss: Apple fonts directory
 Configure miss: Dejavu fonts directory
 Configure miss: Ghostscript fonts directory
+Configure miss: URW-base35 fonts directory
 Configure miss: Windows fonts directory
 Configure miss: 7za

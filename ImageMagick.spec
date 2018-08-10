@@ -5,18 +5,20 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.6.0
-Release  : 15
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.6-0.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.6-0.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.6-0.tar.xz.asc
-Summary  : Magick++ - C++ API for ImageMagick (ABI @MAGICK_ABI_SUFFIX@)
+Version  : 7.0.8.9
+Release  : 16
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-9.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-9.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-9.tar.xz.asc
+Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
-License  : ImageMagick MIT
+License  : BSD-2-Clause ImageMagick MIT
 Requires: ImageMagick-bin
 Requires: ImageMagick-lib
 Requires: ImageMagick-data
-Requires: ImageMagick-doc
+Requires: ImageMagick-license
+Requires: ImageMagick-man
+BuildRequires : buildreq-cpan
 BuildRequires : bzip2-dev
 BuildRequires : curl-dev
 BuildRequires : libjpeg-turbo-dev
@@ -30,24 +32,30 @@ BuildRequires : pkgconfig(lcms2)
 BuildRequires : pkgconfig(libgvc)
 BuildRequires : pkgconfig(liblzma)
 BuildRequires : pkgconfig(libpng)
+BuildRequires : pkgconfig(libraw_r)
 BuildRequires : pkgconfig(librsvg-2.0)
+BuildRequires : pkgconfig(libwebp)
+BuildRequires : pkgconfig(libwebpmux)
 BuildRequires : pkgconfig(libxml-2.0)
 BuildRequires : pkgconfig(pango)
 BuildRequires : pkgconfig(pangocairo)
 BuildRequires : pkgconfig(xt)
 BuildRequires : pkgconfig(zlib)
 BuildRequires : sed
+BuildRequires : xdg-utils
 BuildRequires : zip
 
 %description
 This is Magick++, the object-oriented C++ API to the ImageMagick
-image-processing library, the most comprehensive open-source image
-processing solution available. Read the release notes for Magick++.
+image-processing library, the most comprehensive open-source image processing
+solution available. Read the release notes for Magick++.
 
 %package bin
 Summary: bin components for the ImageMagick package.
 Group: Binaries
 Requires: ImageMagick-data
+Requires: ImageMagick-license
+Requires: ImageMagick-man
 
 %description bin
 bin components for the ImageMagick package.
@@ -76,6 +84,7 @@ dev components for the ImageMagick package.
 %package doc
 Summary: doc components for the ImageMagick package.
 Group: Documentation
+Requires: ImageMagick-man
 
 %description doc
 doc components for the ImageMagick package.
@@ -85,26 +94,43 @@ doc components for the ImageMagick package.
 Summary: lib components for the ImageMagick package.
 Group: Libraries
 Requires: ImageMagick-data
+Requires: ImageMagick-license
 
 %description lib
 lib components for the ImageMagick package.
 
 
+%package license
+Summary: license components for the ImageMagick package.
+Group: Default
+
+%description license
+license components for the ImageMagick package.
+
+
+%package man
+Summary: man components for the ImageMagick package.
+Group: Default
+
+%description man
+man components for the ImageMagick package.
+
+
 %prep
-%setup -q -n ImageMagick-7.0.6-0
+%setup -q -n ImageMagick-7.0.8-9
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1497276302
-export CFLAGS="$CFLAGS -fstack-protector-strong "
-export FCFLAGS="$CFLAGS -fstack-protector-strong "
-export FFLAGS="$CFLAGS -fstack-protector-strong "
-export CXXFLAGS="$CXXFLAGS -fstack-protector-strong "
+export SOURCE_DATE_EPOCH=1533936433
+export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --disable-openmp
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
 %check
 export LANG=C
@@ -114,13 +140,19 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1497276302
+export SOURCE_DATE_EPOCH=1533936433
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/ImageMagick
+cp LICENSE %{buildroot}/usr/share/doc/ImageMagick/LICENSE
+cp Magick++/LICENSE %{buildroot}/usr/share/doc/ImageMagick/Magick++_LICENSE
+cp NOTICE %{buildroot}/usr/share/doc/ImageMagick/NOTICE
+cp www/Magick++/COPYING %{buildroot}/usr/share/doc/ImageMagick/www_Magick++_COPYING
+cp www/license.html %{buildroot}/usr/share/doc/ImageMagick/www_license.html
 %make_install
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ImageMagick-7.0.6/config-Q16HDRI/configure.xml
+/usr/lib64/ImageMagick-7.0.8/config-Q16HDRI/configure.xml
 
 %files bin
 %defattr(-,root,root,-)
@@ -146,8 +178,161 @@ rm -rf %{buildroot}
 /usr/share/ImageMagick-7/english.xml
 /usr/share/ImageMagick-7/francais.xml
 /usr/share/ImageMagick-7/locale.xml
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/ImageMagick-7/Magick++.h
+/usr/include/ImageMagick-7/Magick++/Blob.h
+/usr/include/ImageMagick-7/Magick++/CoderInfo.h
+/usr/include/ImageMagick-7/Magick++/Color.h
+/usr/include/ImageMagick-7/Magick++/Drawable.h
+/usr/include/ImageMagick-7/Magick++/Exception.h
+/usr/include/ImageMagick-7/Magick++/Functions.h
+/usr/include/ImageMagick-7/Magick++/Geometry.h
+/usr/include/ImageMagick-7/Magick++/Image.h
+/usr/include/ImageMagick-7/Magick++/Include.h
+/usr/include/ImageMagick-7/Magick++/Montage.h
+/usr/include/ImageMagick-7/Magick++/Pixels.h
+/usr/include/ImageMagick-7/Magick++/ResourceLimits.h
+/usr/include/ImageMagick-7/Magick++/STL.h
+/usr/include/ImageMagick-7/Magick++/SecurityPolicy.h
+/usr/include/ImageMagick-7/Magick++/Statistic.h
+/usr/include/ImageMagick-7/Magick++/TypeMetric.h
+/usr/include/ImageMagick-7/MagickCore/MagickCore.h
+/usr/include/ImageMagick-7/MagickCore/animate.h
+/usr/include/ImageMagick-7/MagickCore/annotate.h
+/usr/include/ImageMagick-7/MagickCore/artifact.h
+/usr/include/ImageMagick-7/MagickCore/attribute.h
+/usr/include/ImageMagick-7/MagickCore/blob.h
+/usr/include/ImageMagick-7/MagickCore/cache-view.h
+/usr/include/ImageMagick-7/MagickCore/cache.h
+/usr/include/ImageMagick-7/MagickCore/channel.h
+/usr/include/ImageMagick-7/MagickCore/cipher.h
+/usr/include/ImageMagick-7/MagickCore/client.h
+/usr/include/ImageMagick-7/MagickCore/coder.h
+/usr/include/ImageMagick-7/MagickCore/color.h
+/usr/include/ImageMagick-7/MagickCore/colormap.h
+/usr/include/ImageMagick-7/MagickCore/colorspace.h
+/usr/include/ImageMagick-7/MagickCore/compare.h
+/usr/include/ImageMagick-7/MagickCore/composite.h
+/usr/include/ImageMagick-7/MagickCore/compress.h
+/usr/include/ImageMagick-7/MagickCore/configure.h
+/usr/include/ImageMagick-7/MagickCore/constitute.h
+/usr/include/ImageMagick-7/MagickCore/decorate.h
+/usr/include/ImageMagick-7/MagickCore/delegate.h
+/usr/include/ImageMagick-7/MagickCore/deprecate.h
+/usr/include/ImageMagick-7/MagickCore/display.h
+/usr/include/ImageMagick-7/MagickCore/distort.h
+/usr/include/ImageMagick-7/MagickCore/distribute-cache.h
+/usr/include/ImageMagick-7/MagickCore/draw.h
+/usr/include/ImageMagick-7/MagickCore/effect.h
+/usr/include/ImageMagick-7/MagickCore/enhance.h
+/usr/include/ImageMagick-7/MagickCore/exception.h
+/usr/include/ImageMagick-7/MagickCore/feature.h
+/usr/include/ImageMagick-7/MagickCore/fourier.h
+/usr/include/ImageMagick-7/MagickCore/fx.h
+/usr/include/ImageMagick-7/MagickCore/gem.h
+/usr/include/ImageMagick-7/MagickCore/geometry.h
+/usr/include/ImageMagick-7/MagickCore/histogram.h
+/usr/include/ImageMagick-7/MagickCore/identify.h
+/usr/include/ImageMagick-7/MagickCore/image-view.h
+/usr/include/ImageMagick-7/MagickCore/image.h
+/usr/include/ImageMagick-7/MagickCore/layer.h
+/usr/include/ImageMagick-7/MagickCore/linked-list.h
+/usr/include/ImageMagick-7/MagickCore/list.h
+/usr/include/ImageMagick-7/MagickCore/locale_.h
+/usr/include/ImageMagick-7/MagickCore/log.h
+/usr/include/ImageMagick-7/MagickCore/magic.h
+/usr/include/ImageMagick-7/MagickCore/magick-baseconfig.h
+/usr/include/ImageMagick-7/MagickCore/magick-config.h
+/usr/include/ImageMagick-7/MagickCore/magick-type.h
+/usr/include/ImageMagick-7/MagickCore/magick.h
+/usr/include/ImageMagick-7/MagickCore/matrix.h
+/usr/include/ImageMagick-7/MagickCore/memory_.h
+/usr/include/ImageMagick-7/MagickCore/method-attribute.h
+/usr/include/ImageMagick-7/MagickCore/methods.h
+/usr/include/ImageMagick-7/MagickCore/mime.h
+/usr/include/ImageMagick-7/MagickCore/module.h
+/usr/include/ImageMagick-7/MagickCore/monitor.h
+/usr/include/ImageMagick-7/MagickCore/montage.h
+/usr/include/ImageMagick-7/MagickCore/morphology.h
+/usr/include/ImageMagick-7/MagickCore/nt-base.h
+/usr/include/ImageMagick-7/MagickCore/opencl.h
+/usr/include/ImageMagick-7/MagickCore/option.h
+/usr/include/ImageMagick-7/MagickCore/paint.h
+/usr/include/ImageMagick-7/MagickCore/pixel-accessor.h
+/usr/include/ImageMagick-7/MagickCore/pixel.h
+/usr/include/ImageMagick-7/MagickCore/policy.h
+/usr/include/ImageMagick-7/MagickCore/prepress.h
+/usr/include/ImageMagick-7/MagickCore/profile.h
+/usr/include/ImageMagick-7/MagickCore/property.h
+/usr/include/ImageMagick-7/MagickCore/quantize.h
+/usr/include/ImageMagick-7/MagickCore/quantum.h
+/usr/include/ImageMagick-7/MagickCore/random_.h
+/usr/include/ImageMagick-7/MagickCore/registry.h
+/usr/include/ImageMagick-7/MagickCore/resample.h
+/usr/include/ImageMagick-7/MagickCore/resize.h
+/usr/include/ImageMagick-7/MagickCore/resource_.h
+/usr/include/ImageMagick-7/MagickCore/segment.h
+/usr/include/ImageMagick-7/MagickCore/semaphore.h
+/usr/include/ImageMagick-7/MagickCore/shear.h
+/usr/include/ImageMagick-7/MagickCore/signature.h
+/usr/include/ImageMagick-7/MagickCore/splay-tree.h
+/usr/include/ImageMagick-7/MagickCore/static.h
+/usr/include/ImageMagick-7/MagickCore/statistic.h
+/usr/include/ImageMagick-7/MagickCore/stream.h
+/usr/include/ImageMagick-7/MagickCore/string_.h
+/usr/include/ImageMagick-7/MagickCore/studio.h
+/usr/include/ImageMagick-7/MagickCore/threshold.h
+/usr/include/ImageMagick-7/MagickCore/timer.h
+/usr/include/ImageMagick-7/MagickCore/token.h
+/usr/include/ImageMagick-7/MagickCore/transform.h
+/usr/include/ImageMagick-7/MagickCore/type.h
+/usr/include/ImageMagick-7/MagickCore/utility.h
+/usr/include/ImageMagick-7/MagickCore/version.h
+/usr/include/ImageMagick-7/MagickCore/vision.h
+/usr/include/ImageMagick-7/MagickCore/widget.h
+/usr/include/ImageMagick-7/MagickCore/xml-tree.h
+/usr/include/ImageMagick-7/MagickCore/xwindow.h
+/usr/include/ImageMagick-7/MagickWand/MagickWand.h
+/usr/include/ImageMagick-7/MagickWand/animate.h
+/usr/include/ImageMagick-7/MagickWand/compare.h
+/usr/include/ImageMagick-7/MagickWand/composite.h
+/usr/include/ImageMagick-7/MagickWand/conjure.h
+/usr/include/ImageMagick-7/MagickWand/convert.h
+/usr/include/ImageMagick-7/MagickWand/deprecate.h
+/usr/include/ImageMagick-7/MagickWand/display.h
+/usr/include/ImageMagick-7/MagickWand/drawing-wand.h
+/usr/include/ImageMagick-7/MagickWand/identify.h
+/usr/include/ImageMagick-7/MagickWand/import.h
+/usr/include/ImageMagick-7/MagickWand/magick-cli.h
+/usr/include/ImageMagick-7/MagickWand/magick-image.h
+/usr/include/ImageMagick-7/MagickWand/magick-property.h
+/usr/include/ImageMagick-7/MagickWand/method-attribute.h
+/usr/include/ImageMagick-7/MagickWand/mogrify.h
+/usr/include/ImageMagick-7/MagickWand/montage.h
+/usr/include/ImageMagick-7/MagickWand/operation.h
+/usr/include/ImageMagick-7/MagickWand/pixel-iterator.h
+/usr/include/ImageMagick-7/MagickWand/pixel-wand.h
+/usr/include/ImageMagick-7/MagickWand/stream.h
+/usr/include/ImageMagick-7/MagickWand/wand-view.h
+/usr/include/ImageMagick-7/MagickWand/wandcli.h
+/usr/lib64/libMagick++-7.Q16HDRI.so
+/usr/lib64/libMagickCore-7.Q16HDRI.so
+/usr/lib64/libMagickWand-7.Q16HDRI.so
+/usr/lib64/pkgconfig/ImageMagick-7.Q16HDRI.pc
+/usr/lib64/pkgconfig/ImageMagick.pc
+/usr/lib64/pkgconfig/Magick++-7.Q16HDRI.pc
+/usr/lib64/pkgconfig/Magick++.pc
+/usr/lib64/pkgconfig/MagickCore-7.Q16HDRI.pc
+/usr/lib64/pkgconfig/MagickCore.pc
+/usr/lib64/pkgconfig/MagickWand-7.Q16HDRI.pc
+/usr/lib64/pkgconfig/MagickWand.pc
+
+%files doc
+%defattr(0644,root,root,0755)
+%doc /usr/share/doc/ImageMagick/*
 /usr/share/doc/ImageMagick-7/ChangeLog
-/usr/share/doc/ImageMagick-7/LICENSE
 /usr/share/doc/ImageMagick-7/NEWS.txt
 /usr/share/doc/ImageMagick-7/images/ImageMagick.ico
 /usr/share/doc/ImageMagick-7/images/affine.png
@@ -287,6 +472,7 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/Magick++/NEWS.html
 /usr/share/doc/ImageMagick-7/www/Magick++/PixelPacket.html
 /usr/share/doc/ImageMagick-7/www/Magick++/Pixels.html
+/usr/share/doc/ImageMagick-7/www/Magick++/Quantum.html
 /usr/share/doc/ImageMagick-7/www/Magick++/README.txt
 /usr/share/doc/ImageMagick-7/www/Magick++/STL.html
 /usr/share/doc/ImageMagick-7/www/Magick++/TypeMetric.html
@@ -1023,9 +1209,7 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/api/blob.html
 /usr/share/doc/ImageMagick-7/www/api/blob.php
 /usr/share/doc/ImageMagick-7/www/api/cache-view.html
-/usr/share/doc/ImageMagick-7/www/api/cache-view.php
 /usr/share/doc/ImageMagick-7/www/api/cache.html
-/usr/share/doc/ImageMagick-7/www/api/cache.php
 /usr/share/doc/ImageMagick-7/www/api/channel.html
 /usr/share/doc/ImageMagick-7/www/api/channel.php
 /usr/share/doc/ImageMagick-7/www/api/cipher.html
@@ -1039,7 +1223,6 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/api/compare.html
 /usr/share/doc/ImageMagick-7/www/api/compare.php
 /usr/share/doc/ImageMagick-7/www/api/composite.html
-/usr/share/doc/ImageMagick-7/www/api/composite.php
 /usr/share/doc/ImageMagick-7/www/api/constitute.html
 /usr/share/doc/ImageMagick-7/www/api/constitute.php
 /usr/share/doc/ImageMagick-7/www/api/decorate.html
@@ -1069,7 +1252,6 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/api/histogram.html
 /usr/share/doc/ImageMagick-7/www/api/histogram.php
 /usr/share/doc/ImageMagick-7/www/api/image-view.html
-/usr/share/doc/ImageMagick-7/www/api/image-view.php
 /usr/share/doc/ImageMagick-7/www/api/image.html
 /usr/share/doc/ImageMagick-7/www/api/image.php
 /usr/share/doc/ImageMagick-7/www/api/layer.html
@@ -1092,7 +1274,6 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/api/mime.html
 /usr/share/doc/ImageMagick-7/www/api/mime.php
 /usr/share/doc/ImageMagick-7/www/api/module.html
-/usr/share/doc/ImageMagick-7/www/api/module.php
 /usr/share/doc/ImageMagick-7/www/api/mogrify.html
 /usr/share/doc/ImageMagick-7/www/api/mogrify.php
 /usr/share/doc/ImageMagick-7/www/api/monitor.html
@@ -1108,9 +1289,7 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/api/pixel-wand.html
 /usr/share/doc/ImageMagick-7/www/api/pixel-wand.php
 /usr/share/doc/ImageMagick-7/www/api/profile.html
-/usr/share/doc/ImageMagick-7/www/api/profile.php
 /usr/share/doc/ImageMagick-7/www/api/property.html
-/usr/share/doc/ImageMagick-7/www/api/property.php
 /usr/share/doc/ImageMagick-7/www/api/quantize.html
 /usr/share/doc/ImageMagick-7/www/api/quantize.php
 /usr/share/doc/ImageMagick-7/www/api/registry.html
@@ -1118,7 +1297,6 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/api/resize.html
 /usr/share/doc/ImageMagick-7/www/api/resize.php
 /usr/share/doc/ImageMagick-7/www/api/resource.html
-/usr/share/doc/ImageMagick-7/www/api/resource.php
 /usr/share/doc/ImageMagick-7/www/api/segment.html
 /usr/share/doc/ImageMagick-7/www/api/segment.php
 /usr/share/doc/ImageMagick-7/www/api/shear.html
@@ -1128,14 +1306,14 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/api/statistic.html
 /usr/share/doc/ImageMagick-7/www/api/statistic.php
 /usr/share/doc/ImageMagick-7/www/api/stream.html
-/usr/share/doc/ImageMagick-7/www/api/stream.php
 /usr/share/doc/ImageMagick-7/www/api/transform.html
 /usr/share/doc/ImageMagick-7/www/api/transform.php
 /usr/share/doc/ImageMagick-7/www/api/version.html
 /usr/share/doc/ImageMagick-7/www/api/version.php
 /usr/share/doc/ImageMagick-7/www/api/wand-view.html
-/usr/share/doc/ImageMagick-7/www/api/wand-view.php
 /usr/share/doc/ImageMagick-7/www/architecture.html
+/usr/share/doc/ImageMagick-7/www/assets/magick.css
+/usr/share/doc/ImageMagick-7/www/assets/magick.js
 /usr/share/doc/ImageMagick-7/www/binary-releases.html
 /usr/share/doc/ImageMagick-7/www/changelog.html
 /usr/share/doc/ImageMagick-7/www/cipher.html
@@ -1151,8 +1329,6 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/connected-components.html
 /usr/share/doc/ImageMagick-7/www/contact.html
 /usr/share/doc/ImageMagick-7/www/convert.html
-/usr/share/doc/ImageMagick-7/www/css/README.txt
-/usr/share/doc/ImageMagick-7/www/css/magick.css
 /usr/share/doc/ImageMagick-7/www/develop.html
 /usr/share/doc/ImageMagick-7/www/display.html
 /usr/share/doc/ImageMagick-7/www/distribute-pixel-cache.html
@@ -1172,9 +1348,6 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/index.html
 /usr/share/doc/ImageMagick-7/www/install-source.html
 /usr/share/doc/ImageMagick-7/www/jp2.html
-/usr/share/doc/ImageMagick-7/www/js/README.txt
-/usr/share/doc/ImageMagick-7/www/js/magick.js
-/usr/share/doc/ImageMagick-7/www/license.html
 /usr/share/doc/ImageMagick-7/www/links.html
 /usr/share/doc/ImageMagick-7/www/magick++.html
 /usr/share/doc/ImageMagick-7/www/magick-core.html
@@ -1215,8 +1388,12 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/source/piechart.mvg
 /usr/share/doc/ImageMagick-7/www/source/piechart.svg
 /usr/share/doc/ImageMagick-7/www/source/policy.xml
+/usr/share/doc/ImageMagick-7/www/source/quantization-table.xml
 /usr/share/doc/ImageMagick-7/www/source/thresholds.xml
+/usr/share/doc/ImageMagick-7/www/source/type-apple.xml
+/usr/share/doc/ImageMagick-7/www/source/type-dejavu.xml
 /usr/share/doc/ImageMagick-7/www/source/type-ghostscript.xml
+/usr/share/doc/ImageMagick-7/www/source/type-urw-base35.xml
 /usr/share/doc/ImageMagick-7/www/source/type-windows.xml
 /usr/share/doc/ImageMagick-7/www/source/type.xml
 /usr/share/doc/ImageMagick-7/www/source/wand.c
@@ -1226,163 +1403,40 @@ rm -rf %{buildroot}
 /usr/share/doc/ImageMagick-7/www/wand.png
 /usr/share/doc/ImageMagick-7/www/webp.html
 
-%files dev
-%defattr(-,root,root,-)
-/usr/include/ImageMagick-7/Magick++.h
-/usr/include/ImageMagick-7/Magick++/Blob.h
-/usr/include/ImageMagick-7/Magick++/CoderInfo.h
-/usr/include/ImageMagick-7/Magick++/Color.h
-/usr/include/ImageMagick-7/Magick++/Drawable.h
-/usr/include/ImageMagick-7/Magick++/Exception.h
-/usr/include/ImageMagick-7/Magick++/Functions.h
-/usr/include/ImageMagick-7/Magick++/Geometry.h
-/usr/include/ImageMagick-7/Magick++/Image.h
-/usr/include/ImageMagick-7/Magick++/Include.h
-/usr/include/ImageMagick-7/Magick++/Montage.h
-/usr/include/ImageMagick-7/Magick++/Pixels.h
-/usr/include/ImageMagick-7/Magick++/ResourceLimits.h
-/usr/include/ImageMagick-7/Magick++/STL.h
-/usr/include/ImageMagick-7/Magick++/Statistic.h
-/usr/include/ImageMagick-7/Magick++/TypeMetric.h
-/usr/include/ImageMagick-7/MagickCore/MagickCore.h
-/usr/include/ImageMagick-7/MagickCore/animate.h
-/usr/include/ImageMagick-7/MagickCore/annotate.h
-/usr/include/ImageMagick-7/MagickCore/artifact.h
-/usr/include/ImageMagick-7/MagickCore/attribute.h
-/usr/include/ImageMagick-7/MagickCore/blob.h
-/usr/include/ImageMagick-7/MagickCore/cache-view.h
-/usr/include/ImageMagick-7/MagickCore/cache.h
-/usr/include/ImageMagick-7/MagickCore/channel.h
-/usr/include/ImageMagick-7/MagickCore/cipher.h
-/usr/include/ImageMagick-7/MagickCore/client.h
-/usr/include/ImageMagick-7/MagickCore/coder.h
-/usr/include/ImageMagick-7/MagickCore/color.h
-/usr/include/ImageMagick-7/MagickCore/colormap.h
-/usr/include/ImageMagick-7/MagickCore/colorspace.h
-/usr/include/ImageMagick-7/MagickCore/compare.h
-/usr/include/ImageMagick-7/MagickCore/composite.h
-/usr/include/ImageMagick-7/MagickCore/compress.h
-/usr/include/ImageMagick-7/MagickCore/configure.h
-/usr/include/ImageMagick-7/MagickCore/constitute.h
-/usr/include/ImageMagick-7/MagickCore/decorate.h
-/usr/include/ImageMagick-7/MagickCore/delegate.h
-/usr/include/ImageMagick-7/MagickCore/deprecate.h
-/usr/include/ImageMagick-7/MagickCore/display.h
-/usr/include/ImageMagick-7/MagickCore/distort.h
-/usr/include/ImageMagick-7/MagickCore/distribute-cache.h
-/usr/include/ImageMagick-7/MagickCore/draw.h
-/usr/include/ImageMagick-7/MagickCore/effect.h
-/usr/include/ImageMagick-7/MagickCore/enhance.h
-/usr/include/ImageMagick-7/MagickCore/exception.h
-/usr/include/ImageMagick-7/MagickCore/feature.h
-/usr/include/ImageMagick-7/MagickCore/fourier.h
-/usr/include/ImageMagick-7/MagickCore/fx.h
-/usr/include/ImageMagick-7/MagickCore/gem.h
-/usr/include/ImageMagick-7/MagickCore/geometry.h
-/usr/include/ImageMagick-7/MagickCore/histogram.h
-/usr/include/ImageMagick-7/MagickCore/identify.h
-/usr/include/ImageMagick-7/MagickCore/image-view.h
-/usr/include/ImageMagick-7/MagickCore/image.h
-/usr/include/ImageMagick-7/MagickCore/layer.h
-/usr/include/ImageMagick-7/MagickCore/linked-list.h
-/usr/include/ImageMagick-7/MagickCore/list.h
-/usr/include/ImageMagick-7/MagickCore/locale_.h
-/usr/include/ImageMagick-7/MagickCore/log.h
-/usr/include/ImageMagick-7/MagickCore/magic.h
-/usr/include/ImageMagick-7/MagickCore/magick-baseconfig.h
-/usr/include/ImageMagick-7/MagickCore/magick-config.h
-/usr/include/ImageMagick-7/MagickCore/magick-type.h
-/usr/include/ImageMagick-7/MagickCore/magick.h
-/usr/include/ImageMagick-7/MagickCore/matrix.h
-/usr/include/ImageMagick-7/MagickCore/memory_.h
-/usr/include/ImageMagick-7/MagickCore/method-attribute.h
-/usr/include/ImageMagick-7/MagickCore/methods.h
-/usr/include/ImageMagick-7/MagickCore/mime.h
-/usr/include/ImageMagick-7/MagickCore/module.h
-/usr/include/ImageMagick-7/MagickCore/monitor.h
-/usr/include/ImageMagick-7/MagickCore/montage.h
-/usr/include/ImageMagick-7/MagickCore/morphology.h
-/usr/include/ImageMagick-7/MagickCore/nt-base.h
-/usr/include/ImageMagick-7/MagickCore/opencl.h
-/usr/include/ImageMagick-7/MagickCore/option.h
-/usr/include/ImageMagick-7/MagickCore/paint.h
-/usr/include/ImageMagick-7/MagickCore/pixel-accessor.h
-/usr/include/ImageMagick-7/MagickCore/pixel.h
-/usr/include/ImageMagick-7/MagickCore/policy.h
-/usr/include/ImageMagick-7/MagickCore/prepress.h
-/usr/include/ImageMagick-7/MagickCore/profile.h
-/usr/include/ImageMagick-7/MagickCore/property.h
-/usr/include/ImageMagick-7/MagickCore/quantize.h
-/usr/include/ImageMagick-7/MagickCore/quantum.h
-/usr/include/ImageMagick-7/MagickCore/random_.h
-/usr/include/ImageMagick-7/MagickCore/registry.h
-/usr/include/ImageMagick-7/MagickCore/resample.h
-/usr/include/ImageMagick-7/MagickCore/resize.h
-/usr/include/ImageMagick-7/MagickCore/resource_.h
-/usr/include/ImageMagick-7/MagickCore/segment.h
-/usr/include/ImageMagick-7/MagickCore/semaphore.h
-/usr/include/ImageMagick-7/MagickCore/shear.h
-/usr/include/ImageMagick-7/MagickCore/signature.h
-/usr/include/ImageMagick-7/MagickCore/splay-tree.h
-/usr/include/ImageMagick-7/MagickCore/statistic.h
-/usr/include/ImageMagick-7/MagickCore/stream.h
-/usr/include/ImageMagick-7/MagickCore/string_.h
-/usr/include/ImageMagick-7/MagickCore/studio.h
-/usr/include/ImageMagick-7/MagickCore/threshold.h
-/usr/include/ImageMagick-7/MagickCore/timer.h
-/usr/include/ImageMagick-7/MagickCore/token.h
-/usr/include/ImageMagick-7/MagickCore/transform.h
-/usr/include/ImageMagick-7/MagickCore/type.h
-/usr/include/ImageMagick-7/MagickCore/utility.h
-/usr/include/ImageMagick-7/MagickCore/version.h
-/usr/include/ImageMagick-7/MagickCore/vision.h
-/usr/include/ImageMagick-7/MagickCore/widget.h
-/usr/include/ImageMagick-7/MagickCore/xml-tree.h
-/usr/include/ImageMagick-7/MagickCore/xwindow.h
-/usr/include/ImageMagick-7/MagickWand/MagickWand.h
-/usr/include/ImageMagick-7/MagickWand/animate.h
-/usr/include/ImageMagick-7/MagickWand/compare.h
-/usr/include/ImageMagick-7/MagickWand/composite.h
-/usr/include/ImageMagick-7/MagickWand/conjure.h
-/usr/include/ImageMagick-7/MagickWand/convert.h
-/usr/include/ImageMagick-7/MagickWand/deprecate.h
-/usr/include/ImageMagick-7/MagickWand/display.h
-/usr/include/ImageMagick-7/MagickWand/drawing-wand.h
-/usr/include/ImageMagick-7/MagickWand/identify.h
-/usr/include/ImageMagick-7/MagickWand/import.h
-/usr/include/ImageMagick-7/MagickWand/magick-cli.h
-/usr/include/ImageMagick-7/MagickWand/magick-image.h
-/usr/include/ImageMagick-7/MagickWand/magick-property.h
-/usr/include/ImageMagick-7/MagickWand/method-attribute.h
-/usr/include/ImageMagick-7/MagickWand/mogrify.h
-/usr/include/ImageMagick-7/MagickWand/montage.h
-/usr/include/ImageMagick-7/MagickWand/operation.h
-/usr/include/ImageMagick-7/MagickWand/pixel-iterator.h
-/usr/include/ImageMagick-7/MagickWand/pixel-wand.h
-/usr/include/ImageMagick-7/MagickWand/stream.h
-/usr/include/ImageMagick-7/MagickWand/wand-view.h
-/usr/include/ImageMagick-7/MagickWand/wandcli.h
-/usr/lib64/libMagick++-7.Q16HDRI.so
-/usr/lib64/libMagickCore-7.Q16HDRI.so
-/usr/lib64/libMagickWand-7.Q16HDRI.so
-/usr/lib64/pkgconfig/ImageMagick-7.Q16HDRI.pc
-/usr/lib64/pkgconfig/ImageMagick.pc
-/usr/lib64/pkgconfig/Magick++-7.Q16HDRI.pc
-/usr/lib64/pkgconfig/Magick++.pc
-/usr/lib64/pkgconfig/MagickCore-7.Q16HDRI.pc
-/usr/lib64/pkgconfig/MagickCore.pc
-/usr/lib64/pkgconfig/MagickWand-7.Q16HDRI.pc
-/usr/lib64/pkgconfig/MagickWand.pc
-
-%files doc
-%defattr(-,root,root,-)
-%doc /usr/share/man/man1/*
-
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libMagick++-7.Q16HDRI.so.2
-/usr/lib64/libMagick++-7.Q16HDRI.so.2.0.0
-/usr/lib64/libMagickCore-7.Q16HDRI.so.2
-/usr/lib64/libMagickCore-7.Q16HDRI.so.2.0.0
-/usr/lib64/libMagickWand-7.Q16HDRI.so.0
-/usr/lib64/libMagickWand-7.Q16HDRI.so.0.0.0
+/usr/lib64/libMagick++-7.Q16HDRI.so.4
+/usr/lib64/libMagick++-7.Q16HDRI.so.4.0.0
+/usr/lib64/libMagickCore-7.Q16HDRI.so.6
+/usr/lib64/libMagickCore-7.Q16HDRI.so.6.0.0
+/usr/lib64/libMagickWand-7.Q16HDRI.so.6
+/usr/lib64/libMagickWand-7.Q16HDRI.so.6.0.0
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/ImageMagick-7/LICENSE
+/usr/share/doc/ImageMagick-7/www/license.html
+/usr/share/doc/ImageMagick/LICENSE
+/usr/share/doc/ImageMagick/Magick++_LICENSE
+/usr/share/doc/ImageMagick/www_Magick++_COPYING
+/usr/share/doc/ImageMagick/www_license.html
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man1/ImageMagick.1
+/usr/share/man/man1/Magick++-config.1
+/usr/share/man/man1/MagickCore-config.1
+/usr/share/man/man1/MagickWand-config.1
+/usr/share/man/man1/animate.1
+/usr/share/man/man1/compare.1
+/usr/share/man/man1/composite.1
+/usr/share/man/man1/conjure.1
+/usr/share/man/man1/convert.1
+/usr/share/man/man1/display.1
+/usr/share/man/man1/identify.1
+/usr/share/man/man1/import.1
+/usr/share/man/man1/magick-script.1
+/usr/share/man/man1/magick.1
+/usr/share/man/man1/mogrify.1
+/usr/share/man/man1/montage.1
+/usr/share/man/man1/stream.1

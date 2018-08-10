@@ -14,6 +14,7 @@ libfreetype.so.6
 libgcc_s.so.1
 libglib-2.0.so.0
 libgobject-2.0.so.0
+libgomp.so.1
 libgvc.so.6
 libjpeg.so.62
 liblcms2.so.2
@@ -23,7 +24,9 @@ libpango-1.0.so.0
 libpangocairo-1.0.so.0
 libpng16.so.16
 libpthread.so.0
+libraw_r.so.19
 libstdc++.so.6
 libwebp.so.7
+libwebpmux.so.3
 libxml2.so.2
 libz.so.1
