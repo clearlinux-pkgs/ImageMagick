@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.9
-Release  : 17
+Release  : 18
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-9.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-9.tar.xz
 Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-9.tar.xz.asc
@@ -118,20 +118,31 @@ man components for the ImageMagick package.
 
 %prep
 %setup -q -n ImageMagick-7.0.8-9
+pushd ..
+cp -a ImageMagick-7.0.8-9 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1533936913
-export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export SOURCE_DATE_EPOCH=1533952529
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --disable-openmp
 make  %{?_smp_mflags}
 
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+export CFLAGS="$CFLAGS -m64 -march=haswell"
+export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
+export LDFLAGS="$LDFLAGS -m64 -march=haswell"
+%configure --disable-static --disable-openmp
+make  %{?_smp_mflags}
+popd
 %check
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
@@ -140,7 +151,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1533936913
+export SOURCE_DATE_EPOCH=1533952529
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/ImageMagick
 cp LICENSE %{buildroot}/usr/share/doc/ImageMagick/LICENSE
@@ -148,6 +159,9 @@ cp Magick++/LICENSE %{buildroot}/usr/share/doc/ImageMagick/Magick++_LICENSE
 cp NOTICE %{buildroot}/usr/share/doc/ImageMagick/NOTICE
 cp www/Magick++/COPYING %{buildroot}/usr/share/doc/ImageMagick/www_Magick++_COPYING
 cp www/license.html %{buildroot}/usr/share/doc/ImageMagick/www_license.html
+pushd ../buildavx2/
+%make_install_avx2
+popd
 %make_install
 
 %files
@@ -165,6 +179,19 @@ cp www/license.html %{buildroot}/usr/share/doc/ImageMagick/www_license.html
 /usr/bin/conjure
 /usr/bin/convert
 /usr/bin/display
+/usr/bin/haswell/animate
+/usr/bin/haswell/compare
+/usr/bin/haswell/composite
+/usr/bin/haswell/conjure
+/usr/bin/haswell/convert
+/usr/bin/haswell/display
+/usr/bin/haswell/identify
+/usr/bin/haswell/import
+/usr/bin/haswell/magick
+/usr/bin/haswell/magick-script
+/usr/bin/haswell/mogrify
+/usr/bin/haswell/montage
+/usr/bin/haswell/stream
 /usr/bin/identify
 /usr/bin/import
 /usr/bin/magick
@@ -317,6 +344,9 @@ cp www/license.html %{buildroot}/usr/share/doc/ImageMagick/www_license.html
 /usr/include/ImageMagick-7/MagickWand/stream.h
 /usr/include/ImageMagick-7/MagickWand/wand-view.h
 /usr/include/ImageMagick-7/MagickWand/wandcli.h
+/usr/lib64/haswell/libMagick++-7.Q16HDRI.so
+/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so
+/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so
 /usr/lib64/libMagick++-7.Q16HDRI.so
 /usr/lib64/libMagickCore-7.Q16HDRI.so
 /usr/lib64/libMagickWand-7.Q16HDRI.so
@@ -1405,6 +1435,12 @@ cp www/license.html %{buildroot}/usr/share/doc/ImageMagick/www_license.html
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/haswell/libMagick++-7.Q16HDRI.so.4
+/usr/lib64/haswell/libMagick++-7.Q16HDRI.so.4.0.0
+/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.6
+/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.6.0.0
+/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.6
+/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.6.0.0
 /usr/lib64/libMagick++-7.Q16HDRI.so.4
 /usr/lib64/libMagick++-7.Q16HDRI.so.4.0.0
 /usr/lib64/libMagickCore-7.Q16HDRI.so.6
