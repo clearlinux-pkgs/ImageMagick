@@ -1,0 +1,2 @@
+mkdir -p %{buildroot}/usr/share/defaults/ImageMagick-7/
+mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
