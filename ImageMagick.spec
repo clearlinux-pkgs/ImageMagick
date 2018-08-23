@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.10
-Release  : 19
+Release  : 20
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-10.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-10.tar.xz
 Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-10.tar.xz.asc
@@ -46,6 +46,7 @@ BuildRequires : sed
 BuildRequires : tiff-dev
 BuildRequires : xdg-utils
 BuildRequires : zip
+Patch1: vulnerability-Note-VU-332928.patch
 
 %description
 This is Magick++, the object-oriented C++ API to the ImageMagick
@@ -120,6 +121,7 @@ man components for the ImageMagick package.
 
 %prep
 %setup -q -n ImageMagick-7.0.8-10
+%patch1 -p1
 pushd ..
 cp -a ImageMagick-7.0.8-10 buildavx2
 popd
@@ -129,7 +131,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534287421
+export SOURCE_DATE_EPOCH=1535050543
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -153,7 +155,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1534287421
+export SOURCE_DATE_EPOCH=1535050543
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/ImageMagick
 cp LICENSE %{buildroot}/usr/share/doc/ImageMagick/LICENSE
