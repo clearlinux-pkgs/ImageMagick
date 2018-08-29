@@ -1,3 +1,11 @@
+2018-08-28  7.0.8-11 Cristy  <quetzlzacatenango@image...>
+  * Release ImageMagick version 7.0.8-11, GIT revision 14729:798fbdb5b:20180828
+
+2018-08-15  7.0.8-11 Cristy  <quetzlzacatenango@image...>
+  * Fixed numerous use of uninitialized values, integer overflow, memory
+    exceeded, and timeouts (credit to OSS Fuzz).
+  * Add support for "module" security policy.
+
 2018-08-13  7.0.8-10 Cristy  <quetzlzacatenango@image...>
   * Release ImageMagick version 7.0.8-10, GIT revision 14646:48fba3256:20180813
 
@@ -17,7 +25,7 @@
   * XBM coder leaves the hex image data uninitialized if hex value of the
     pixel is negative.
   * More improvements to SVG text handling.
-  * New -range threshold option that combines hard and soft thresholding.
+  * New -range-threshold option that combines hard and soft thresholding.
 
 2018-07-23  7.0.8-8 Cristy  <quetzlzacatenango@image...>
   * Release ImageMagick version 7.0.8-8, GIT revision 14583:300fdbcfd:20180723.
