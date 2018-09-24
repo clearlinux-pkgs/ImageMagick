@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.11
-Release  : 22
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-11.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-11.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-11.tar.xz.asc
+Version  : 7.0.8.12
+Release  : 23
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
-License  : BSD-2-Clause ImageMagick MIT
+License  : MIT
 Requires: ImageMagick-bin
 Requires: ImageMagick-lib
 Requires: ImageMagick-data
@@ -56,9 +56,9 @@ solution available. Read the release notes for Magick++.
 %package bin
 Summary: bin components for the ImageMagick package.
 Group: Binaries
-Requires: ImageMagick-data
-Requires: ImageMagick-license
-Requires: ImageMagick-man
+Requires: ImageMagick-data = %{version}-%{release}
+Requires: ImageMagick-license = %{version}-%{release}
+Requires: ImageMagick-man = %{version}-%{release}
 
 %description bin
 bin components for the ImageMagick package.
@@ -75,10 +75,10 @@ data components for the ImageMagick package.
 %package dev
 Summary: dev components for the ImageMagick package.
 Group: Development
-Requires: ImageMagick-lib
-Requires: ImageMagick-bin
-Requires: ImageMagick-data
-Provides: ImageMagick-devel
+Requires: ImageMagick-lib = %{version}-%{release}
+Requires: ImageMagick-bin = %{version}-%{release}
+Requires: ImageMagick-data = %{version}-%{release}
+Provides: ImageMagick-devel = %{version}-%{release}
 
 %description dev
 dev components for the ImageMagick package.
@@ -87,7 +87,7 @@ dev components for the ImageMagick package.
 %package doc
 Summary: doc components for the ImageMagick package.
 Group: Documentation
-Requires: ImageMagick-man
+Requires: ImageMagick-man = %{version}-%{release}
 
 %description doc
 doc components for the ImageMagick package.
@@ -96,8 +96,8 @@ doc components for the ImageMagick package.
 %package lib
 Summary: lib components for the ImageMagick package.
 Group: Libraries
-Requires: ImageMagick-data
-Requires: ImageMagick-license
+Requires: ImageMagick-data = %{version}-%{release}
+Requires: ImageMagick-license = %{version}-%{release}
 
 %description lib
 lib components for the ImageMagick package.
@@ -120,10 +120,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-11
+%setup -q -n ImageMagick-7.0.8-12
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-11 buildavx2
+cp -a ImageMagick-7.0.8-12 buildavx2
 popd
 
 %build
@@ -131,7 +131,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535573364
+export SOURCE_DATE_EPOCH=1537754428
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -155,14 +155,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1535573364
+export SOURCE_DATE_EPOCH=1537754428
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/ImageMagick
-cp LICENSE %{buildroot}/usr/share/doc/ImageMagick/LICENSE
 cp Magick++/LICENSE %{buildroot}/usr/share/doc/ImageMagick/Magick++_LICENSE
-cp NOTICE %{buildroot}/usr/share/doc/ImageMagick/NOTICE
 cp www/Magick++/COPYING %{buildroot}/usr/share/doc/ImageMagick/www_Magick++_COPYING
-cp www/license.html %{buildroot}/usr/share/doc/ImageMagick/www_license.html
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -370,7 +367,6 @@ mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
 
 %files doc
 %defattr(0644,root,root,0755)
-%doc /usr/share/doc/ImageMagick/*
 /usr/share/doc/ImageMagick-7/ChangeLog
 /usr/share/doc/ImageMagick-7/NEWS.txt
 /usr/share/doc/ImageMagick-7/images/ImageMagick.ico
@@ -1437,7 +1433,6 @@ mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
 /usr/share/doc/ImageMagick-7/www/source/type.xml
 /usr/share/doc/ImageMagick-7/www/source/wand.c
 /usr/share/doc/ImageMagick-7/www/stream.html
-/usr/share/doc/ImageMagick-7/www/subversion.html
 /usr/share/doc/ImageMagick-7/www/support.html
 /usr/share/doc/ImageMagick-7/www/wand.png
 /usr/share/doc/ImageMagick-7/www/webp.html
@@ -1461,10 +1456,8 @@ mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
 %defattr(-,root,root,-)
 /usr/share/doc/ImageMagick-7/LICENSE
 /usr/share/doc/ImageMagick-7/www/license.html
-/usr/share/doc/ImageMagick/LICENSE
 /usr/share/doc/ImageMagick/Magick++_LICENSE
 /usr/share/doc/ImageMagick/www_Magick++_COPYING
-/usr/share/doc/ImageMagick/www_license.html
 
 %files man
 %defattr(-,root,root,-)

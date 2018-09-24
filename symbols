@@ -3869,6 +3869,7 @@ libMagickWand-7.Q16HDRI.so.6:DrawGetTextInterlineSpacing
 libMagickWand-7.Q16HDRI.so.6:DrawGetTextInterwordSpacing
 libMagickWand-7.Q16HDRI.so.6:DrawGetTextKerning
 libMagickWand-7.Q16HDRI.so.6:DrawGetTextUnderColor
+libMagickWand-7.Q16HDRI.so.6:DrawGetTypeMetrics
 libMagickWand-7.Q16HDRI.so.6:DrawGetVectorGraphics
 libMagickWand-7.Q16HDRI.so.6:DrawLine
 libMagickWand-7.Q16HDRI.so.6:DrawPathClose
