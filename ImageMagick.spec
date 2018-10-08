@@ -6,18 +6,18 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.12
-Release  : 23
+Release  : 24
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz
 Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
-License  : MIT
-Requires: ImageMagick-bin
-Requires: ImageMagick-lib
-Requires: ImageMagick-data
-Requires: ImageMagick-license
-Requires: ImageMagick-man
+License  : ImageMagick MIT
+Requires: ImageMagick-bin = %{version}-%{release}
+Requires: ImageMagick-data = %{version}-%{release}
+Requires: ImageMagick-lib = %{version}-%{release}
+Requires: ImageMagick-license = %{version}-%{release}
+Requires: ImageMagick-man = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : bzip2-dev
 BuildRequires : curl-dev
@@ -131,7 +131,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537754428
+export SOURCE_DATE_EPOCH=1539024222
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -155,11 +155,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1537754428
+export SOURCE_DATE_EPOCH=1539024222
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/ImageMagick
-cp Magick++/LICENSE %{buildroot}/usr/share/doc/ImageMagick/Magick++_LICENSE
-cp www/Magick++/COPYING %{buildroot}/usr/share/doc/ImageMagick/www_Magick++_COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
+cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
+cp Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/Magick++_LICENSE
+cp www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
+cp www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/www_license.html
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -167,6 +169,8 @@ popd
 ## install_append content
 mkdir -p %{buildroot}/usr/share/defaults/ImageMagick-7/
 mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
+mkdir -p %{buildroot}/usr/share/ImageMagick-7/
+install config/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 ## install_append end
 
 %files
@@ -210,6 +214,7 @@ mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
 /usr/share/ImageMagick-7/english.xml
 /usr/share/ImageMagick-7/francais.xml
 /usr/share/ImageMagick-7/locale.xml
+/usr/share/ImageMagick-7/magic.xml
 /usr/share/defaults/ImageMagick-7/policy.xml
 
 %files dev
@@ -368,6 +373,7 @@ mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
 %files doc
 %defattr(0644,root,root,0755)
 /usr/share/doc/ImageMagick-7/ChangeLog
+/usr/share/doc/ImageMagick-7/LICENSE
 /usr/share/doc/ImageMagick-7/NEWS.txt
 /usr/share/doc/ImageMagick-7/images/ImageMagick.ico
 /usr/share/doc/ImageMagick-7/images/affine.png
@@ -1383,6 +1389,7 @@ mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
 /usr/share/doc/ImageMagick-7/www/index.html
 /usr/share/doc/ImageMagick-7/www/install-source.html
 /usr/share/doc/ImageMagick-7/www/jp2.html
+/usr/share/doc/ImageMagick-7/www/license.html
 /usr/share/doc/ImageMagick-7/www/links.html
 /usr/share/doc/ImageMagick-7/www/magick++.html
 /usr/share/doc/ImageMagick-7/www/magick-core.html
@@ -1453,14 +1460,14 @@ mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
 /usr/lib64/libMagickWand-7.Q16HDRI.so.6.0.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/ImageMagick-7/LICENSE
-/usr/share/doc/ImageMagick-7/www/license.html
-/usr/share/doc/ImageMagick/Magick++_LICENSE
-/usr/share/doc/ImageMagick/www_Magick++_COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/ImageMagick/LICENSE
+/usr/share/package-licenses/ImageMagick/Magick++_LICENSE
+/usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
+/usr/share/package-licenses/ImageMagick/www_license.html
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/ImageMagick.1
 /usr/share/man/man1/Magick++-config.1
 /usr/share/man/man1/MagickCore-config.1
