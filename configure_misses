@@ -58,9 +58,9 @@ Configure miss: fpxlib.h presence
 Configure miss: fpxlib.h
 Configure miss: FPX_OpenImageByFilename in -lfpx
 Configure miss: if FlashPIX package is complete
-Configure miss: ddjvuapi
-Configure miss: RAQM
-Configure miss: HEIF
+Configure miss: ddjvuapi >= 3.5.0
+Configure miss: raqm
+Configure miss: libheif
 Configure miss: jbig.h usability
 Configure miss: jbig.h presence
 Configure miss: jbig.h
@@ -69,9 +69,9 @@ Configure miss: if JBIG package is complete
 Configure miss: lcms2/lcms2.h usability
 Configure miss: lcms2/lcms2.h presence
 Configure miss: lcms2/lcms2.h
-Configure miss: LIBOPENJP2
-Configure miss: LQR
-Configure miss: OPENEXR
+Configure miss: libopenjp2 >= 2.1.0
+Configure miss: lqr-1 >= 0.1.0
+Configure miss: OpenEXR >= 1.0.6
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
 Configure miss: gsx
@@ -143,9 +143,9 @@ Configure miss: fpxlib.h presence
 Configure miss: fpxlib.h
 Configure miss: FPX_OpenImageByFilename in -lfpx
 Configure miss: if FlashPIX package is complete
-Configure miss: ddjvuapi
-Configure miss: RAQM
-Configure miss: HEIF
+Configure miss: ddjvuapi >= 3.5.0
+Configure miss: raqm
+Configure miss: libheif
 Configure miss: jbig.h usability
 Configure miss: jbig.h presence
 Configure miss: jbig.h
@@ -154,9 +154,9 @@ Configure miss: if JBIG package is complete
 Configure miss: lcms2/lcms2.h usability
 Configure miss: lcms2/lcms2.h presence
 Configure miss: lcms2/lcms2.h
-Configure miss: LIBOPENJP2
-Configure miss: LQR
-Configure miss: OPENEXR
+Configure miss: libopenjp2 >= 2.1.0
+Configure miss: lqr-1 >= 0.1.0
+Configure miss: OpenEXR >= 1.0.6
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
 Configure miss: gsx
