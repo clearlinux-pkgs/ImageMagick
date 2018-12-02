@@ -5,3 +5,4 @@ libjpeg-turbo-dev
 libwebp-dev
 curl-dev
 zip
+openexr-dev
