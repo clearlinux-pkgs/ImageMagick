@@ -71,7 +71,6 @@ Configure miss: lcms2/lcms2.h presence
 Configure miss: lcms2/lcms2.h
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: lqr-1 >= 0.1.0
-Configure miss: OpenEXR >= 1.0.6
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
 Configure miss: gsx
@@ -156,7 +155,6 @@ Configure miss: lcms2/lcms2.h presence
 Configure miss: lcms2/lcms2.h
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: lqr-1 >= 0.1.0
-Configure miss: OpenEXR >= 1.0.6
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
 Configure miss: gsx

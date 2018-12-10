@@ -3312,6 +3312,7 @@ libMagickCore-7.Q16HDRI.so.6:RegisterDNGImage
 libMagickCore-7.Q16HDRI.so.6:RegisterDOTImage
 libMagickCore-7.Q16HDRI.so.6:RegisterDPXImage
 libMagickCore-7.Q16HDRI.so.6:RegisterEPTImage
+libMagickCore-7.Q16HDRI.so.6:RegisterEXRImage
 libMagickCore-7.Q16HDRI.so.6:RegisterFAXImage
 libMagickCore-7.Q16HDRI.so.6:RegisterFITSImage
 libMagickCore-7.Q16HDRI.so.6:RegisterGIFImage
@@ -3646,6 +3647,7 @@ libMagickCore-7.Q16HDRI.so.6:UnregisterDNGImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterDOTImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterDPXImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterEPTImage
+libMagickCore-7.Q16HDRI.so.6:UnregisterEXRImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterFAXImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterFITSImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterGIFImage

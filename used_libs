@@ -1,4 +1,10 @@
+libHalf.so.23
 libICE.so.6
+libIex-2_2.so.23
+libIexMath-2_2.so.23
+libIlmImf-2_2.so.23
+libIlmThread-2_2.so.23
+libImath-2_2.so.23
 libSM.so.6
 libX11.so.6
 libXext.so.6
