@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.21
-Release  : 33
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-21.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-21.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-21.tar.xz.asc
+Version  : 7.0.8.22
+Release  : 34
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-22.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-22.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-22.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -122,10 +122,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-21
+%setup -q -n ImageMagick-7.0.8-22
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-21 buildavx2
+cp -a ImageMagick-7.0.8-22 buildavx2
 popd
 
 %build
@@ -133,7 +133,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545937994
+export SOURCE_DATE_EPOCH=1546210743
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -157,13 +157,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1545937994
+export SOURCE_DATE_EPOCH=1546210743
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
 cp Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/Magick++_LICENSE
 cp www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
-cp www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/www_license.html
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -1244,115 +1243,65 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/www/api/MagickWand/wand_8h.html
 /usr/share/doc/ImageMagick-7/www/api/MagickWand/wandtest_8c.html
 /usr/share/doc/ImageMagick-7/www/api/animate.html
-/usr/share/doc/ImageMagick-7/www/api/animate.php
 /usr/share/doc/ImageMagick-7/www/api/annotate.html
-/usr/share/doc/ImageMagick-7/www/api/annotate.php
 /usr/share/doc/ImageMagick-7/www/api/attribute.html
-/usr/share/doc/ImageMagick-7/www/api/attribute.php
 /usr/share/doc/ImageMagick-7/www/api/blob.html
-/usr/share/doc/ImageMagick-7/www/api/blob.php
 /usr/share/doc/ImageMagick-7/www/api/cache-view.html
 /usr/share/doc/ImageMagick-7/www/api/cache.html
 /usr/share/doc/ImageMagick-7/www/api/channel.html
-/usr/share/doc/ImageMagick-7/www/api/channel.php
 /usr/share/doc/ImageMagick-7/www/api/cipher.html
-/usr/share/doc/ImageMagick-7/www/api/cipher.php
 /usr/share/doc/ImageMagick-7/www/api/color.html
-/usr/share/doc/ImageMagick-7/www/api/color.php
 /usr/share/doc/ImageMagick-7/www/api/colormap.html
-/usr/share/doc/ImageMagick-7/www/api/colormap.php
 /usr/share/doc/ImageMagick-7/www/api/colorspace.html
-/usr/share/doc/ImageMagick-7/www/api/colorspace.php
 /usr/share/doc/ImageMagick-7/www/api/compare.html
-/usr/share/doc/ImageMagick-7/www/api/compare.php
 /usr/share/doc/ImageMagick-7/www/api/composite.html
 /usr/share/doc/ImageMagick-7/www/api/constitute.html
-/usr/share/doc/ImageMagick-7/www/api/constitute.php
 /usr/share/doc/ImageMagick-7/www/api/decorate.html
-/usr/share/doc/ImageMagick-7/www/api/decorate.php
 /usr/share/doc/ImageMagick-7/www/api/deprecate.html
-/usr/share/doc/ImageMagick-7/www/api/deprecate.php
 /usr/share/doc/ImageMagick-7/www/api/display.html
-/usr/share/doc/ImageMagick-7/www/api/display.php
 /usr/share/doc/ImageMagick-7/www/api/distort.html
-/usr/share/doc/ImageMagick-7/www/api/distort.php
 /usr/share/doc/ImageMagick-7/www/api/draw.html
-/usr/share/doc/ImageMagick-7/www/api/draw.php
 /usr/share/doc/ImageMagick-7/www/api/drawing-wand.html
-/usr/share/doc/ImageMagick-7/www/api/drawing-wand.php
 /usr/share/doc/ImageMagick-7/www/api/effect.html
-/usr/share/doc/ImageMagick-7/www/api/effect.php
 /usr/share/doc/ImageMagick-7/www/api/enhance.html
-/usr/share/doc/ImageMagick-7/www/api/enhance.php
 /usr/share/doc/ImageMagick-7/www/api/exception.html
-/usr/share/doc/ImageMagick-7/www/api/exception.php
 /usr/share/doc/ImageMagick-7/www/api/feature.html
-/usr/share/doc/ImageMagick-7/www/api/feature.php
 /usr/share/doc/ImageMagick-7/www/api/fourier.html
-/usr/share/doc/ImageMagick-7/www/api/fourier.php
 /usr/share/doc/ImageMagick-7/www/api/fx.html
-/usr/share/doc/ImageMagick-7/www/api/fx.php
 /usr/share/doc/ImageMagick-7/www/api/histogram.html
-/usr/share/doc/ImageMagick-7/www/api/histogram.php
 /usr/share/doc/ImageMagick-7/www/api/image-view.html
 /usr/share/doc/ImageMagick-7/www/api/image.html
-/usr/share/doc/ImageMagick-7/www/api/image.php
 /usr/share/doc/ImageMagick-7/www/api/layer.html
-/usr/share/doc/ImageMagick-7/www/api/layer.php
 /usr/share/doc/ImageMagick-7/www/api/list.html
-/usr/share/doc/ImageMagick-7/www/api/list.php
 /usr/share/doc/ImageMagick-7/www/api/magick++-classes.html
 /usr/share/doc/ImageMagick-7/www/api/magick-deprecate.html
-/usr/share/doc/ImageMagick-7/www/api/magick-deprecate.php
 /usr/share/doc/ImageMagick-7/www/api/magick-image.html
-/usr/share/doc/ImageMagick-7/www/api/magick-image.php
 /usr/share/doc/ImageMagick-7/www/api/magick-property.html
-/usr/share/doc/ImageMagick-7/www/api/magick-property.php
 /usr/share/doc/ImageMagick-7/www/api/magick-wand.html
-/usr/share/doc/ImageMagick-7/www/api/magick-wand.php
 /usr/share/doc/ImageMagick-7/www/api/magick.html
-/usr/share/doc/ImageMagick-7/www/api/magick.php
 /usr/share/doc/ImageMagick-7/www/api/memory.html
-/usr/share/doc/ImageMagick-7/www/api/memory.php
 /usr/share/doc/ImageMagick-7/www/api/mime.html
-/usr/share/doc/ImageMagick-7/www/api/mime.php
 /usr/share/doc/ImageMagick-7/www/api/module.html
 /usr/share/doc/ImageMagick-7/www/api/mogrify.html
-/usr/share/doc/ImageMagick-7/www/api/mogrify.php
 /usr/share/doc/ImageMagick-7/www/api/monitor.html
-/usr/share/doc/ImageMagick-7/www/api/monitor.php
 /usr/share/doc/ImageMagick-7/www/api/montage.html
-/usr/share/doc/ImageMagick-7/www/api/montage.php
 /usr/share/doc/ImageMagick-7/www/api/morphology.html
-/usr/share/doc/ImageMagick-7/www/api/morphology.php
 /usr/share/doc/ImageMagick-7/www/api/paint.html
-/usr/share/doc/ImageMagick-7/www/api/paint.php
 /usr/share/doc/ImageMagick-7/www/api/pixel-iterator.html
-/usr/share/doc/ImageMagick-7/www/api/pixel-iterator.php
 /usr/share/doc/ImageMagick-7/www/api/pixel-wand.html
-/usr/share/doc/ImageMagick-7/www/api/pixel-wand.php
 /usr/share/doc/ImageMagick-7/www/api/profile.html
 /usr/share/doc/ImageMagick-7/www/api/property.html
 /usr/share/doc/ImageMagick-7/www/api/quantize.html
-/usr/share/doc/ImageMagick-7/www/api/quantize.php
 /usr/share/doc/ImageMagick-7/www/api/registry.html
-/usr/share/doc/ImageMagick-7/www/api/registry.php
 /usr/share/doc/ImageMagick-7/www/api/resize.html
-/usr/share/doc/ImageMagick-7/www/api/resize.php
 /usr/share/doc/ImageMagick-7/www/api/resource.html
 /usr/share/doc/ImageMagick-7/www/api/segment.html
-/usr/share/doc/ImageMagick-7/www/api/segment.php
 /usr/share/doc/ImageMagick-7/www/api/shear.html
-/usr/share/doc/ImageMagick-7/www/api/shear.php
 /usr/share/doc/ImageMagick-7/www/api/signature.html
-/usr/share/doc/ImageMagick-7/www/api/signature.php
 /usr/share/doc/ImageMagick-7/www/api/statistic.html
-/usr/share/doc/ImageMagick-7/www/api/statistic.php
 /usr/share/doc/ImageMagick-7/www/api/stream.html
 /usr/share/doc/ImageMagick-7/www/api/transform.html
-/usr/share/doc/ImageMagick-7/www/api/transform.php
 /usr/share/doc/ImageMagick-7/www/api/version.html
-/usr/share/doc/ImageMagick-7/www/api/version.php
 /usr/share/doc/ImageMagick-7/www/api/wand-view.html
 /usr/share/doc/ImageMagick-7/www/architecture.html
 /usr/share/doc/ImageMagick-7/www/assets/magick.css
@@ -1466,7 +1415,6 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/package-licenses/ImageMagick/LICENSE
 /usr/share/package-licenses/ImageMagick/Magick++_LICENSE
 /usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
-/usr/share/package-licenses/ImageMagick/www_license.html
 
 %files man
 %defattr(0644,root,root,0755)
