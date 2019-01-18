@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.23
-Release  : 35
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-23.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-23.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-23.tar.xz.asc
-Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
+Version  : 7.0.8.24
+Release  : 36
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-24.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-24.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-24.tar.xz.asc
+Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
 Requires: ImageMagick-bin = %{version}-%{release}
@@ -136,10 +136,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-23
+%setup -q -n ImageMagick-7.0.8-24
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-23 buildavx2
+cp -a ImageMagick-7.0.8-24 buildavx2
 popd
 
 %build
@@ -147,7 +147,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546437451
+export SOURCE_DATE_EPOCH=1547783590
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -171,7 +171,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1546437451
+export SOURCE_DATE_EPOCH=1547783590
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
@@ -420,6 +420,9 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/images/logo.jpg
 /usr/share/doc/ImageMagick-7/images/logo.png
 /usr/share/doc/ImageMagick-7/images/montage.jpg
+/usr/share/doc/ImageMagick-7/images/mountains-clahe.jpg
+/usr/share/doc/ImageMagick-7/images/mountains-equalize.jpg
+/usr/share/doc/ImageMagick-7/images/mountains.jpg
 /usr/share/doc/ImageMagick-7/images/navy.png
 /usr/share/doc/ImageMagick-7/images/objects.gif
 /usr/share/doc/ImageMagick-7/images/objects.jpg
@@ -1324,6 +1327,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/www/binary-releases.html
 /usr/share/doc/ImageMagick-7/www/changelog.html
 /usr/share/doc/ImageMagick-7/www/cipher.html
+/usr/share/doc/ImageMagick-7/www/clahe.html
 /usr/share/doc/ImageMagick-7/www/color-management.html
 /usr/share/doc/ImageMagick-7/www/color.html
 /usr/share/doc/ImageMagick-7/www/command-line-options.html
