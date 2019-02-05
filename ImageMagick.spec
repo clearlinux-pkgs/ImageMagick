@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.26
-Release  : 38
+Release  : 39
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-26.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-26.tar.xz
 Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-26.tar.xz.asc
@@ -21,6 +21,7 @@ Requires: ImageMagick-man = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : bzip2-dev
 BuildRequires : curl-dev
+BuildRequires : lcms2-dev
 BuildRequires : libjpeg-turbo-dev
 BuildRequires : libwebp-dev
 BuildRequires : openexr-dev
@@ -44,6 +45,7 @@ BuildRequires : pkgconfig(pangocairo)
 BuildRequires : pkgconfig(xt)
 BuildRequires : pkgconfig(zlib)
 BuildRequires : sed
+BuildRequires : tiff-dev
 BuildRequires : xdg-utils
 BuildRequires : zip
 Patch1: vulnerability-Note-VU-332928.patch
@@ -145,7 +147,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549383806
+export SOURCE_DATE_EPOCH=1549384733
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -169,7 +171,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1549383806
+export SOURCE_DATE_EPOCH=1549384733
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE

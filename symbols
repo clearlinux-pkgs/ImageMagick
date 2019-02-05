@@ -3315,6 +3315,7 @@ libMagickCore-7.Q16HDRI.so.6:RegisterDIBImage
 libMagickCore-7.Q16HDRI.so.6:RegisterDNGImage
 libMagickCore-7.Q16HDRI.so.6:RegisterDOTImage
 libMagickCore-7.Q16HDRI.so.6:RegisterDPXImage
+libMagickCore-7.Q16HDRI.so.6:RegisterEPTImage
 libMagickCore-7.Q16HDRI.so.6:RegisterEXRImage
 libMagickCore-7.Q16HDRI.so.6:RegisterFAXImage
 libMagickCore-7.Q16HDRI.so.6:RegisterFITSImage
@@ -3390,6 +3391,7 @@ libMagickCore-7.Q16HDRI.so.6:RegisterStaticModule
 libMagickCore-7.Q16HDRI.so.6:RegisterStaticModules
 libMagickCore-7.Q16HDRI.so.6:RegisterTGAImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTHUMBNAILImage
+libMagickCore-7.Q16HDRI.so.6:RegisterTIFFImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTILEImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTIMImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTTFImage
@@ -3648,6 +3650,7 @@ libMagickCore-7.Q16HDRI.so.6:UnregisterDIBImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterDNGImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterDOTImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterDPXImage
+libMagickCore-7.Q16HDRI.so.6:UnregisterEPTImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterEXRImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterFAXImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterFITSImage
@@ -3723,6 +3726,7 @@ libMagickCore-7.Q16HDRI.so.6:UnregisterStaticModule
 libMagickCore-7.Q16HDRI.so.6:UnregisterStaticModules
 libMagickCore-7.Q16HDRI.so.6:UnregisterTGAImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTHUMBNAILImage
+libMagickCore-7.Q16HDRI.so.6:UnregisterTIFFImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTILEImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTIMImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTTFImage
