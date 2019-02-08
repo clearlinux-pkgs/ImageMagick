@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.26
-Release  : 39
+Release  : 40
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-26.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-26.tar.xz
 Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-26.tar.xz.asc
