@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.36
-Release  : 50
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-36.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-36.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-36.tar.xz.asc
-Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
+Version  : 7.0.8.37
+Release  : 51
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-37.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-37.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-37.tar.xz.asc
+Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
 Requires: ImageMagick-bin = %{version}-%{release}
@@ -51,8 +51,23 @@ BuildRequires : zip
 Patch1: vulnerability-Note-VU-332928.patch
 
 %description
-This directory contains a number of PerlMagick demonstration scripts.  Just
-type
+Introduction to ImageMagick
+ImageMagickÂ® is a software suite to create, edit, compose, or convert
+bitmap images. It can read and write images in a variety of formats (over
+200) including PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript,
+PDF, and SVG. Use ImageMagick to resize, flip, mirror, rotate, distort,
+shear and transform images, adjust image colors, apply various special
+effects, or draw text, lines, polygons, ellipses and BÃ©zier curves.
+
+The functionality of ImageMagick is typically utilized from the command
+line or you can use the features from programs written in your favorite
+language. Choose from these interfaces: G2F (Ada), MagickCore (C),
+MagickWand (C), ChMagick (Ch), ImageMagickObject (COM+), Magick++ (C++),
+JMagick (Java), L-Magick (Lisp), Lua, NMagick (Neko/haXe), Magick.NET
+(.NET), PascalMagick (Pascal), PerlMagick (Perl), MagickWand for PHP
+(PHP), IMagick (PHP), PythonMagick (Python), RMagick (Ruby), or TclMagick
+(Tcl/TK). With a language interface, use ImageMagick to modify or create
+images dynamically and automagically.
 
 %package bin
 Summary: bin components for the ImageMagick package.
@@ -79,6 +94,7 @@ Requires: ImageMagick-lib = %{version}-%{release}
 Requires: ImageMagick-bin = %{version}-%{release}
 Requires: ImageMagick-data = %{version}-%{release}
 Provides: ImageMagick-devel = %{version}-%{release}
+Requires: ImageMagick = %{version}-%{release}
 
 %description dev
 dev components for the ImageMagick package.
@@ -120,10 +136,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-36
+%setup -q -n ImageMagick-7.0.8-37
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-36 buildavx2
+cp -a ImageMagick-7.0.8-37 buildavx2
 popd
 
 %build
@@ -131,8 +147,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554138297
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1554391532
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -156,7 +171,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1554138297
+export SOURCE_DATE_EPOCH=1554391532
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
