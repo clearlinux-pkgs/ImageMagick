@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.39
-Release  : 53
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-39.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-39.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-39.tar.xz.asc
+Version  : 7.0.8.40
+Release  : 54
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-40.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-40.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-40.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -136,10 +136,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-39
+%setup -q -n ImageMagick-7.0.8-40
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-39 buildavx2
+cp -a ImageMagick-7.0.8-40 buildavx2
 popd
 
 %build
@@ -147,7 +147,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554647129
+export SOURCE_DATE_EPOCH=1555167559
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -171,11 +171,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1554647129
+export SOURCE_DATE_EPOCH=1555167559
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
 cp Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/Magick++_LICENSE
+cp NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/NOTICE
 cp www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
 cp www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/www_license.html
 pushd ../buildavx2/
@@ -1433,6 +1434,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/ImageMagick/LICENSE
 /usr/share/package-licenses/ImageMagick/Magick++_LICENSE
+/usr/share/package-licenses/ImageMagick/NOTICE
 /usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
 /usr/share/package-licenses/ImageMagick/www_license.html
 
