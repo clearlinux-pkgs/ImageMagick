@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.40
-Release  : 55
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-40.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-40.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-40.tar.xz.asc
+Version  : 7.0.8.41
+Release  : 56
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-41.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-41.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-41.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -136,10 +136,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-40
+%setup -q -n ImageMagick-7.0.8-41
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-40 buildavx2
+cp -a ImageMagick-7.0.8-41 buildavx2
 popd
 
 %build
@@ -147,11 +147,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555167559
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export SOURCE_DATE_EPOCH=1555857860
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fcf-protection=full -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
 %configure --disable-static --disable-openmp
 make  %{?_smp_mflags}
 
@@ -171,7 +171,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1555167559
+export SOURCE_DATE_EPOCH=1555857860
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
