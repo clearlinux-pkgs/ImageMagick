@@ -29,18 +29,6 @@ Configure miss: sys/syslimits.h usability
 Configure miss: sys/syslimits.h presence
 Configure miss: sys/syslimits.h
 Configure miss: locale_t
-Configure miss: _aligned_malloc
-Configure miss: directio
-Configure miss: lltostr
-Configure miss: _NSGetExecutablePath
-Configure miss: _pclose
-Configure miss: _popen
-Configure miss: spawnvp
-Configure miss: ulltostr
-Configure miss: vfprintf_l
-Configure miss: vsnprintf_l
-Configure miss: _wfopen
-Configure miss: _wstat
 Configure miss: DPS/dpsXclient.h usability
 Configure miss: DPS/dpsXclient.h presence
 Configure miss: DPS/dpsXclient.h
@@ -73,6 +61,18 @@ Configure miss: libopenjp2 >= 2.1.0
 Configure miss: lqr-1 >= 0.1.0
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
+Configure miss: _aligned_malloc
+Configure miss: directio
+Configure miss: lltostr
+Configure miss: _NSGetExecutablePath
+Configure miss: _pclose
+Configure miss: _popen
+Configure miss: spawnvp
+Configure miss: ulltostr
+Configure miss: vfprintf_l
+Configure miss: vsnprintf_l
+Configure miss: _wfopen
+Configure miss: _wstat
 Configure miss: gsx
 Configure miss: gsc
 Configure miss: gs
@@ -113,18 +113,6 @@ Configure miss: sys/syslimits.h usability
 Configure miss: sys/syslimits.h presence
 Configure miss: sys/syslimits.h
 Configure miss: locale_t
-Configure miss: _aligned_malloc
-Configure miss: directio
-Configure miss: lltostr
-Configure miss: _NSGetExecutablePath
-Configure miss: _pclose
-Configure miss: _popen
-Configure miss: spawnvp
-Configure miss: ulltostr
-Configure miss: vfprintf_l
-Configure miss: vsnprintf_l
-Configure miss: _wfopen
-Configure miss: _wstat
 Configure miss: DPS/dpsXclient.h usability
 Configure miss: DPS/dpsXclient.h presence
 Configure miss: DPS/dpsXclient.h
@@ -157,6 +145,18 @@ Configure miss: libopenjp2 >= 2.1.0
 Configure miss: lqr-1 >= 0.1.0
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
+Configure miss: _aligned_malloc
+Configure miss: directio
+Configure miss: lltostr
+Configure miss: _NSGetExecutablePath
+Configure miss: _pclose
+Configure miss: _popen
+Configure miss: spawnvp
+Configure miss: ulltostr
+Configure miss: vfprintf_l
+Configure miss: vsnprintf_l
+Configure miss: _wfopen
+Configure miss: _wstat
 Configure miss: gsx
 Configure miss: gsc
 Configure miss: gs
