@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.50
-Release  : 66
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-50.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-50.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-50.tar.xz.asc
+Version  : 7.0.8.51
+Release  : 67
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-51.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-51.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-51.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -52,12 +52,12 @@ Patch1: vulnerability-Note-VU-332928.patch
 
 %description
 Introduction to ImageMagick
-ImageMagickÂ® is a software suite to create, edit, compose, or convert
+ImageMagick® is a software suite to create, edit, compose, or convert
 bitmap images. It can read and write images in a variety of formats (over
 200) including PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript,
 PDF, and SVG. Use ImageMagick to resize, flip, mirror, rotate, distort,
 shear and transform images, adjust image colors, apply various special
-effects, or draw text, lines, polygons, ellipses and BÃ©zier curves.
+effects, or draw text, lines, polygons, ellipses and Bézier curves.
 
 The functionality of ImageMagick is typically utilized from the command
 line or you can use the features from programs written in your favorite
@@ -137,10 +137,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-50
+%setup -q -n ImageMagick-7.0.8-51
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-50 buildavx2
+cp -a ImageMagick-7.0.8-51 buildavx2
 popd
 
 %build
@@ -148,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1561402987
+export SOURCE_DATE_EPOCH=1562031647
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -176,7 +176,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1561402987
+export SOURCE_DATE_EPOCH=1562031647
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
