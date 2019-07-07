@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.51
-Release  : 67
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-51.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-51.tar.xz
-Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-51.tar.xz.asc
+Version  : 7.0.8.53
+Release  : 68
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-53.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-53.tar.xz
+Source99 : https://www.imagemagick.org/download/ImageMagick-7.0.8-53.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -137,18 +137,18 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-51
+%setup -q -n ImageMagick-7.0.8-53
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-51 buildavx2
+cp -a ImageMagick-7.0.8-53 buildavx2
 popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1562031647
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562514897
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -169,14 +169,14 @@ export LDFLAGS="$LDFLAGS -m64 -march=haswell"
 make  %{?_smp_mflags}
 popd
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1562031647
+export SOURCE_DATE_EPOCH=1562514897
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
