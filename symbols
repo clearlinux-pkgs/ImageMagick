@@ -3395,6 +3395,7 @@ libMagickCore-7.Q16HDRI.so.6:RegisterTGAImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTHUMBNAILImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTIFFImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTILEImage
+libMagickCore-7.Q16HDRI.so.6:RegisterTIM2Image
 libMagickCore-7.Q16HDRI.so.6:RegisterTIMImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTTFImage
 libMagickCore-7.Q16HDRI.so.6:RegisterTXTImage
@@ -3730,6 +3731,7 @@ libMagickCore-7.Q16HDRI.so.6:UnregisterTGAImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTHUMBNAILImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTIFFImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTILEImage
+libMagickCore-7.Q16HDRI.so.6:UnregisterTIM2Image
 libMagickCore-7.Q16HDRI.so.6:UnregisterTIMImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTTFImage
 libMagickCore-7.Q16HDRI.so.6:UnregisterTXTImage
@@ -4167,6 +4169,7 @@ libMagickWand-7.Q16HDRI.so.6:MagickInverseFourierTransformImage
 libMagickWand-7.Q16HDRI.so.6:MagickKuwaharaImage
 libMagickWand-7.Q16HDRI.so.6:MagickLabelImage
 libMagickWand-7.Q16HDRI.so.6:MagickLevelImage
+libMagickWand-7.Q16HDRI.so.6:MagickLevelImageColors
 libMagickWand-7.Q16HDRI.so.6:MagickLevelizeImage
 libMagickWand-7.Q16HDRI.so.6:MagickLinearStretchImage
 libMagickWand-7.Q16HDRI.so.6:MagickLiquidRescaleImage
