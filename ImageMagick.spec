@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.8.60
-Release  : 77
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-60.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-60.tar.xz
-Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.8-60.tar.xz.asc
+Version  : 7.0.8.61
+Release  : 78
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-61.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-61.tar.xz
+Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.8-61.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -137,10 +137,10 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.8-60
+%setup -q -n ImageMagick-7.0.8-61
 %patch1 -p1
 pushd ..
-cp -a ImageMagick-7.0.8-60 buildavx2
+cp -a ImageMagick-7.0.8-61 buildavx2
 popd
 
 %build
@@ -148,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565579236
+export SOURCE_DATE_EPOCH=1566052918
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -177,7 +177,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1565579236
+export SOURCE_DATE_EPOCH=1566052918
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
