@@ -6,11 +6,11 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.62
-Release  : 79
+Release  : 80
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-62.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-62.tar.xz
 Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.8-62.tar.xz.asc
-Summary  : An image viewing/manipulation program
+Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
 Requires: ImageMagick-bin = %{version}-%{release}
@@ -49,25 +49,11 @@ BuildRequires : tiff-dev
 BuildRequires : xdg-utils
 BuildRequires : zip
 Patch1: vulnerability-Note-VU-332928.patch
+Patch2: 0001-configure.c-stateless-configuration.patch
 
 %description
-Introduction to ImageMagick
-ImageMagick® is a software suite to create, edit, compose, or convert
-bitmap images. It can read and write images in a variety of formats (over
-200) including PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript,
-PDF, and SVG. Use ImageMagick to resize, flip, mirror, rotate, distort,
-shear and transform images, adjust image colors, apply various special
-effects, or draw text, lines, polygons, ellipses and Bézier curves.
-
-The functionality of ImageMagick is typically utilized from the command
-line or you can use the features from programs written in your favorite
-language. Choose from these interfaces: G2F (Ada), MagickCore (C),
-MagickWand (C), ChMagick (Ch), ImageMagickObject (COM+), Magick++ (C++),
-JMagick (Java), L-Magick (Lisp), Lua, NMagick (Neko/haXe), Magick.NET
-(.NET), PascalMagick (Pascal), PerlMagick (Perl), MagickWand for PHP
-(PHP), IMagick (PHP), PythonMagick (Python), RMagick (Ruby), or TclMagick
-(Tcl/TK). With a language interface, use ImageMagick to modify or create
-images dynamically and automagically.
+This directory contains a number of PerlMagick demonstration scripts.  Just
+type
 
 %package bin
 Summary: bin components for the ImageMagick package.
@@ -94,7 +80,6 @@ Requires: ImageMagick-lib = %{version}-%{release}
 Requires: ImageMagick-bin = %{version}-%{release}
 Requires: ImageMagick-data = %{version}-%{release}
 Provides: ImageMagick-devel = %{version}-%{release}
-Requires: ImageMagick = %{version}-%{release}
 Requires: ImageMagick = %{version}-%{release}
 
 %description dev
@@ -139,6 +124,7 @@ man components for the ImageMagick package.
 %prep
 %setup -q -n ImageMagick-7.0.8-62
 %patch1 -p1
+%patch2 -p1
 pushd ..
 cp -a ImageMagick-7.0.8-62 buildavx2
 popd
@@ -148,16 +134,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566662830
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1567124516
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --disable-openmp
 make  %{?_smp_mflags}
 
@@ -177,7 +162,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1566662830
+export SOURCE_DATE_EPOCH=1567124516
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
@@ -192,6 +177,7 @@ popd
 ## install_append content
 mkdir -p %{buildroot}/usr/share/defaults/ImageMagick-7/
 mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
+cp %{buildroot}/etc/ImageMagick-7/* %{buildroot}/usr/share/defaults/ImageMagick-7/
 mkdir -p %{buildroot}/usr/share/ImageMagick-7/
 install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 ## install_append end
@@ -238,7 +224,19 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/ImageMagick-7/francais.xml
 /usr/share/ImageMagick-7/locale.xml
 /usr/share/ImageMagick-7/magic.xml
+/usr/share/defaults/ImageMagick-7/colors.xml
+/usr/share/defaults/ImageMagick-7/delegates.xml
+/usr/share/defaults/ImageMagick-7/log.xml
+/usr/share/defaults/ImageMagick-7/mime.xml
 /usr/share/defaults/ImageMagick-7/policy.xml
+/usr/share/defaults/ImageMagick-7/quantization-table.xml
+/usr/share/defaults/ImageMagick-7/thresholds.xml
+/usr/share/defaults/ImageMagick-7/type-apple.xml
+/usr/share/defaults/ImageMagick-7/type-dejavu.xml
+/usr/share/defaults/ImageMagick-7/type-ghostscript.xml
+/usr/share/defaults/ImageMagick-7/type-urw-base35.xml
+/usr/share/defaults/ImageMagick-7/type-windows.xml
+/usr/share/defaults/ImageMagick-7/type.xml
 
 %files dev
 %defattr(-,root,root,-)

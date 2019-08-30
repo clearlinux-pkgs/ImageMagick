@@ -1,4 +1,5 @@
 mkdir -p %{buildroot}/usr/share/defaults/ImageMagick-7/
 mv config/policy.xml %{buildroot}/usr/share/defaults/ImageMagick-7/policy.xml
+cp %{buildroot}/etc/ImageMagick-7/* %{buildroot}/usr/share/defaults/ImageMagick-7/
 mkdir -p %{buildroot}/usr/share/ImageMagick-7/
 install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
