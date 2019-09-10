@@ -6,7 +6,7 @@ libIlmThread-2_3.so.24
 libImath-2_3.so.24
 libX11.so.6
 libXt.so.6
-libbz2.so.0
+libbz2.so.1.0
 libc.so.6
 libcairo.so.2
 libcdt.so.5

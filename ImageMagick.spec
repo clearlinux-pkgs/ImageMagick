@@ -6,11 +6,11 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.64
-Release  : 82
+Release  : 83
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-64.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-64.tar.xz
 Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.8-64.tar.xz.asc
-Summary  : An image viewing/manipulation program
+Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
 Requires: ImageMagick-bin = %{version}-%{release}
@@ -52,23 +52,8 @@ Patch1: vulnerability-Note-VU-332928.patch
 Patch2: 0001-configure.c-stateless-configuration.patch
 
 %description
-Introduction to ImageMagick
-ImageMagick® is a software suite to create, edit, compose, or convert
-bitmap images. It can read and write images in a variety of formats (over
-200) including PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript,
-PDF, and SVG. Use ImageMagick to resize, flip, mirror, rotate, distort,
-shear and transform images, adjust image colors, apply various special
-effects, or draw text, lines, polygons, ellipses and Bézier curves.
-
-The functionality of ImageMagick is typically utilized from the command
-line or you can use the features from programs written in your favorite
-language. Choose from these interfaces: G2F (Ada), MagickCore (C),
-MagickWand (C), ChMagick (Ch), ImageMagickObject (COM+), Magick++ (C++),
-JMagick (Java), L-Magick (Lisp), Lua, NMagick (Neko/haXe), Magick.NET
-(.NET), PascalMagick (Pascal), PerlMagick (Perl), MagickWand for PHP
-(PHP), IMagick (PHP), PythonMagick (Python), RMagick (Ruby), or TclMagick
-(Tcl/TK). With a language interface, use ImageMagick to modify or create
-images dynamically and automagically.
+This directory contains a number of PerlMagick demonstration scripts.  Just
+type
 
 %package bin
 Summary: bin components for the ImageMagick package.
@@ -95,7 +80,6 @@ Requires: ImageMagick-lib = %{version}-%{release}
 Requires: ImageMagick-bin = %{version}-%{release}
 Requires: ImageMagick-data = %{version}-%{release}
 Provides: ImageMagick-devel = %{version}-%{release}
-Requires: ImageMagick = %{version}-%{release}
 Requires: ImageMagick = %{version}-%{release}
 
 %description dev
@@ -150,16 +134,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567967283
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1568073842
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
+export CFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --disable-openmp
 make  %{?_smp_mflags}
 
@@ -179,13 +162,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1567967283
+export SOURCE_DATE_EPOCH=1568073842
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/LICENSE
 cp Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/Magick++_LICENSE
 cp NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/NOTICE
 cp www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
+cp www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/www_license.html
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -1456,6 +1440,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/package-licenses/ImageMagick/Magick++_LICENSE
 /usr/share/package-licenses/ImageMagick/NOTICE
 /usr/share/package-licenses/ImageMagick/www_Magick++_COPYING
+/usr/share/package-licenses/ImageMagick/www_license.html
 
 %files man
 %defattr(0644,root,root,0755)
