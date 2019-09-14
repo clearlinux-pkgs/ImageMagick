@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.8.64
-Release  : 83
+Release  : 84
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.8-64.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.8-64.tar.xz
 Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.8-64.tar.xz.asc
