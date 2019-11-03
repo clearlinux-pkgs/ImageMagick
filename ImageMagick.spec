@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.9.2
-Release  : 91
+Release  : 92
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.9-2.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.9-2.tar.xz
 Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.9-2.tar.xz.asc
