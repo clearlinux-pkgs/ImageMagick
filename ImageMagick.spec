@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.9.4
-Release  : 94
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.9-4.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.9-4.tar.xz
-Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.9-4.tar.xz.asc
+Version  : 7.0.9.5
+Release  : 95
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.9-5.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.9-5.tar.xz
+Source1 : https://www.imagemagick.org/download/ImageMagick-7.0.9-5.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -139,12 +139,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.9-4
-cd %{_builddir}/ImageMagick-7.0.9-4
+%setup -q -n ImageMagick-7.0.9-5
+cd %{_builddir}/ImageMagick-7.0.9-5
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.0.9-4 buildavx2
+cp -a ImageMagick-7.0.9-5 buildavx2
 popd
 
 %build
@@ -152,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573839487
+export SOURCE_DATE_EPOCH=1574048365
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -181,14 +181,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1573839487
+export SOURCE_DATE_EPOCH=1574048365
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.0.9-4/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/da6955466efd1ef2352cd775e085a4714935e2b7
-cp %{_builddir}/ImageMagick-7.0.9-4/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
-cp %{_builddir}/ImageMagick-7.0.9-4/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/d59d1983d3e7abfc35f3c852aa5f756036c12495
-cp %{_builddir}/ImageMagick-7.0.9-4/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
-cp %{_builddir}/ImageMagick-7.0.9-4/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/ba2b2923ef6d8ab577346765afe3a857ece95649
+cp %{_builddir}/ImageMagick-7.0.9-5/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/da6955466efd1ef2352cd775e085a4714935e2b7
+cp %{_builddir}/ImageMagick-7.0.9-5/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
+cp %{_builddir}/ImageMagick-7.0.9-5/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/d59d1983d3e7abfc35f3c852aa5f756036c12495
+cp %{_builddir}/ImageMagick-7.0.9-5/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
+cp %{_builddir}/ImageMagick-7.0.9-5/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/ba2b2923ef6d8ab577346765afe3a857ece95649
 pushd ../buildavx2/
 %make_install_avx2
 popd
