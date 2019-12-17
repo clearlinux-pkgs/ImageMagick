@@ -27,7 +27,6 @@ Configure miss: sun_prefetch.h
 Configure miss: sys/syslimits.h usability
 Configure miss: sys/syslimits.h presence
 Configure miss: sys/syslimits.h
-Configure miss: locale_t
 Configure miss: DPS/dpsXclient.h usability
 Configure miss: DPS/dpsXclient.h presence
 Configure miss: DPS/dpsXclient.h
@@ -119,7 +118,6 @@ Configure miss: sun_prefetch.h
 Configure miss: sys/syslimits.h usability
 Configure miss: sys/syslimits.h presence
 Configure miss: sys/syslimits.h
-Configure miss: locale_t
 Configure miss: DPS/dpsXclient.h usability
 Configure miss: DPS/dpsXclient.h presence
 Configure miss: DPS/dpsXclient.h
