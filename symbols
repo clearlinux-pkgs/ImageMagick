@@ -3158,6 +3158,7 @@ libMagickCore-7.Q16HDRI.so.7:IsSceneGeometry
 libMagickCore-7.Q16HDRI.so.7:IsStringFalse
 libMagickCore-7.Q16HDRI.so.7:IsStringTrue
 libMagickCore-7.Q16HDRI.so.7:IsTaintImage
+libMagickCore-7.Q16HDRI.so.7:KmeansImage
 libMagickCore-7.Q16HDRI.so.7:KuwaharaImage
 libMagickCore-7.Q16HDRI.so.7:LZWEncodeImage
 libMagickCore-7.Q16HDRI.so.7:LevelImage
