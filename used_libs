@@ -19,6 +19,7 @@ libglib-2.0.so.0
 libgobject-2.0.so.0
 libgomp.so.1
 libgvc.so.6
+libharfbuzz.so.0
 libjpeg.so.62
 liblcms2.so.2
 liblzma.so.5
