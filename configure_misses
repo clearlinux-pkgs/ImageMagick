@@ -69,6 +69,7 @@ Configure miss: lqr-1 >= 0.1.0
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
 Configure miss: _aligned_malloc
+Configure miss: aligned_malloc
 Configure miss: directio
 Configure miss: lltostr
 Configure miss: _NSGetExecutablePath
@@ -160,6 +161,7 @@ Configure miss: lqr-1 >= 0.1.0
 Configure miss: libwmf/ipa.h
 Configure miss: if WMF package is complete 
 Configure miss: _aligned_malloc
+Configure miss: aligned_malloc
 Configure miss: directio
 Configure miss: lltostr
 Configure miss: _NSGetExecutablePath
