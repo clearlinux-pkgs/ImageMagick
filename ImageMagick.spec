@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.9.27
-Release  : 111
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.9-27.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.9-27.tar.xz
-Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.9-27.tar.xz.asc
+Version  : 7.0.10.0
+Release  : 112
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-0.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-0.tar.xz
+Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-0.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -139,12 +139,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.9-27
-cd %{_builddir}/ImageMagick-7.0.9-27
+%setup -q -n ImageMagick-7.0.10-0
+cd %{_builddir}/ImageMagick-7.0.10-0
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.0.9-27 buildavx2
+cp -a ImageMagick-7.0.10-0 buildavx2
 popd
 
 %build
@@ -152,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583160062
+export SOURCE_DATE_EPOCH=1583766572
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -181,13 +181,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1583160062
+export SOURCE_DATE_EPOCH=1583766572
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.0.9-27/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
-cp %{_builddir}/ImageMagick-7.0.9-27/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
-cp %{_builddir}/ImageMagick-7.0.9-27/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
-cp %{_builddir}/ImageMagick-7.0.9-27/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/dbc237d800803611f53ab1db3e7a7ba4f946847e
+cp %{_builddir}/ImageMagick-7.0.10-0/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
+cp %{_builddir}/ImageMagick-7.0.10-0/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
+cp %{_builddir}/ImageMagick-7.0.10-0/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
+cp %{_builddir}/ImageMagick-7.0.10-0/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/dbc237d800803611f53ab1db3e7a7ba4f946847e
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -202,7 +202,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ImageMagick-7.0.9/config-Q16HDRI/configure.xml
+/usr/lib64/ImageMagick-7.0.10/config-Q16HDRI/configure.xml
 
 %files bin
 %defattr(-,root,root,-)
@@ -427,6 +427,12 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/images/bluebells_lin.jpg
 /usr/share/doc/ImageMagick-7/images/bluebells_log.jpg
 /usr/share/doc/ImageMagick-7/images/button.gif
+/usr/share/doc/ImageMagick-7/images/color-thresholding-gray.gif
+/usr/share/doc/ImageMagick-7/images/color-thresholding-hsv-rgb.gif
+/usr/share/doc/ImageMagick-7/images/color-thresholding-hsv.gif
+/usr/share/doc/ImageMagick-7/images/color-thresholding-rgb.gif
+/usr/share/doc/ImageMagick-7/images/color-thresholding.gif
+/usr/share/doc/ImageMagick-7/images/color-thresholding.jpg
 /usr/share/doc/ImageMagick-7/images/configure.jpg
 /usr/share/doc/ImageMagick-7/images/cylinder_shaded.png
 /usr/share/doc/ImageMagick-7/images/difference.png
@@ -1353,6 +1359,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/www/cipher.html
 /usr/share/doc/ImageMagick-7/www/clahe.html
 /usr/share/doc/ImageMagick-7/www/color-management.html
+/usr/share/doc/ImageMagick-7/www/color-thresholding.html
 /usr/share/doc/ImageMagick-7/www/color.html
 /usr/share/doc/ImageMagick-7/www/command-line-options.html
 /usr/share/doc/ImageMagick-7/www/command-line-processing.html
