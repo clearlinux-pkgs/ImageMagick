@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.10.1
-Release  : 113
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-1.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-1.tar.xz
-Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-1.tar.xz.asc
+Version  : 7.0.10.2
+Release  : 114
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-2.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-2.tar.xz
+Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-2.tar.xz.asc
 Summary  : An image viewing/manipulation program
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -139,12 +139,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.10-1
-cd %{_builddir}/ImageMagick-7.0.10-1
+%setup -q -n ImageMagick-7.0.10-2
+cd %{_builddir}/ImageMagick-7.0.10-2
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.0.10-1 buildavx2
+cp -a ImageMagick-7.0.10-2 buildavx2
 popd
 
 %build
@@ -152,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584370343
+export SOURCE_DATE_EPOCH=1584892272
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -181,14 +181,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1584370343
+export SOURCE_DATE_EPOCH=1584892272
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.0.10-1/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
-cp %{_builddir}/ImageMagick-7.0.10-1/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
-cp %{_builddir}/ImageMagick-7.0.10-1/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/74a4b5e5b4221d5f9b27a3efe665a27746229f79
-cp %{_builddir}/ImageMagick-7.0.10-1/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
-cp %{_builddir}/ImageMagick-7.0.10-1/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/dbc237d800803611f53ab1db3e7a7ba4f946847e
+cp %{_builddir}/ImageMagick-7.0.10-2/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
+cp %{_builddir}/ImageMagick-7.0.10-2/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
+cp %{_builddir}/ImageMagick-7.0.10-2/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/74a4b5e5b4221d5f9b27a3efe665a27746229f79
+cp %{_builddir}/ImageMagick-7.0.10-2/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -435,6 +434,11 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/images/color-thresholding.gif
 /usr/share/doc/ImageMagick-7/images/color-thresholding.jpg
 /usr/share/doc/ImageMagick-7/images/configure.jpg
+/usr/share/doc/ImageMagick-7/images/convex-hull-barn-closure.jpg
+/usr/share/doc/ImageMagick-7/images/convex-hull-barn.jpg
+/usr/share/doc/ImageMagick-7/images/convex-hull-blocks-closure.png
+/usr/share/doc/ImageMagick-7/images/convex-hull-blocks.png
+/usr/share/doc/ImageMagick-7/images/convex-hull.png
 /usr/share/doc/ImageMagick-7/images/cylinder_shaded.png
 /usr/share/doc/ImageMagick-7/images/difference.png
 /usr/share/doc/ImageMagick-7/images/examples.jpg
@@ -1372,6 +1376,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/www/connected-components.html
 /usr/share/doc/ImageMagick-7/www/contact.html
 /usr/share/doc/ImageMagick-7/www/convert.html
+/usr/share/doc/ImageMagick-7/www/convex-hull.html
 /usr/share/doc/ImageMagick-7/www/develop.html
 /usr/share/doc/ImageMagick-7/www/display.html
 /usr/share/doc/ImageMagick-7/www/distribute-pixel-cache.html
@@ -1466,7 +1471,6 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
 /usr/share/package-licenses/ImageMagick/74a4b5e5b4221d5f9b27a3efe665a27746229f79
 /usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
-/usr/share/package-licenses/ImageMagick/dbc237d800803611f53ab1db3e7a7ba4f946847e
 /usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
 
 %files man

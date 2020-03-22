@@ -2927,6 +2927,7 @@ libMagickCore-7.Q16HDRI.so.7:GetImageListLength
 libMagickCore-7.Q16HDRI.so.7:GetImageMagick
 libMagickCore-7.Q16HDRI.so.7:GetImageMask
 libMagickCore-7.Q16HDRI.so.7:GetImageMean
+libMagickCore-7.Q16HDRI.so.7:GetImageMinimumBoundingBox
 libMagickCore-7.Q16HDRI.so.7:GetImageMoments
 libMagickCore-7.Q16HDRI.so.7:GetImageOption
 libMagickCore-7.Q16HDRI.so.7:GetImagePerceptualHash
