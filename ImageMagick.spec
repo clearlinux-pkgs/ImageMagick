@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.10.2
-Release  : 114
+Release  : 115
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-2.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-2.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-2.tar.xz.asc
@@ -152,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584892272
+export SOURCE_DATE_EPOCH=1585239503
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -162,7 +162,8 @@ export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-o
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
 export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -fcf-protection=full -ffat-lto-objects -flto=4 -fno-math-errno -fno-semantic-interposition -fno-trapping-math -fstack-protector-strong "
-%configure --disable-static --disable-openmp
+%configure --disable-static --disable-openmp \
+--enable-hugepages
 make  %{?_smp_mflags}
 
 unset PKG_CONFIG_PATH
@@ -170,7 +171,8 @@ pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=haswell"
 export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
 export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%configure --disable-static --disable-openmp
+%configure --disable-static --disable-openmp \
+--enable-hugepages
 make  %{?_smp_mflags}
 popd
 %check
@@ -181,7 +183,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1584892272
+export SOURCE_DATE_EPOCH=1585239503
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.0.10-2/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
