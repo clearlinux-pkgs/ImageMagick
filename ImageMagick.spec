@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.10.17
-Release  : 126
+Release  : 127
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-17.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-17.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-17.tar.xz.asc
@@ -136,7 +136,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591627043
+export SOURCE_DATE_EPOCH=1591633274
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -168,7 +168,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1591627043
+export SOURCE_DATE_EPOCH=1591633274
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.0.10-17/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
