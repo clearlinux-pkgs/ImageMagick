@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.10.19
-Release  : 129
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-19.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-19.tar.xz
-Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-19.tar.xz.asc
+Version  : 7.0.10.20
+Release  : 130
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-20.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-20.tar.xz
+Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-20.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -123,12 +123,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.10-19
-cd %{_builddir}/ImageMagick-7.0.10-19
+%setup -q -n ImageMagick-7.0.10-20
+cd %{_builddir}/ImageMagick-7.0.10-20
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.0.10-19 buildavx2
+cp -a ImageMagick-7.0.10-20 buildavx2
 popd
 
 %build
@@ -136,7 +136,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592238313
+export SOURCE_DATE_EPOCH=1592836600
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -168,13 +168,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1592238313
+export SOURCE_DATE_EPOCH=1592836600
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.0.10-19/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
-cp %{_builddir}/ImageMagick-7.0.10-19/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
-cp %{_builddir}/ImageMagick-7.0.10-19/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/74a4b5e5b4221d5f9b27a3efe665a27746229f79
-cp %{_builddir}/ImageMagick-7.0.10-19/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
+cp %{_builddir}/ImageMagick-7.0.10-20/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1de15ef06b3465e1bb922ba9c69a2a67a0263455
+cp %{_builddir}/ImageMagick-7.0.10-20/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
+cp %{_builddir}/ImageMagick-7.0.10-20/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/74a4b5e5b4221d5f9b27a3efe665a27746229f79
+cp %{_builddir}/ImageMagick-7.0.10-20/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -1349,6 +1349,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/www/binary-releases.html
 /usr/share/doc/ImageMagick-7/www/changelog.html
 /usr/share/doc/ImageMagick-7/www/cipher.html
+/usr/share/doc/ImageMagick-7/www/cite.html
 /usr/share/doc/ImageMagick-7/www/clahe.html
 /usr/share/doc/ImageMagick-7/www/color-management.html
 /usr/share/doc/ImageMagick-7/www/color-thresholding.html
