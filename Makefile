@@ -1,5 +1,5 @@
 PKG_NAME := ImageMagick
-URL = https://www.imagemagick.org/download/ImageMagick-7.0.10-22.tar.xz
+URL = https://www.imagemagick.org/download/ImageMagick-7.0.10-23.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
