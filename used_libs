@@ -36,3 +36,4 @@ libwebpdemux.so.2
 libwebpmux.so.3
 libxml2.so.2
 libz.so.1
+libzip.so.5
