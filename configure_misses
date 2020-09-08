@@ -1,12 +1,13 @@
 Configure miss: if malloc debugging is wanted
 Configure miss: linker lazyload option
-Configure miss: whether we are using the Microsoft C compiler
 Configure miss: CL/cl.h usability
 Configure miss: CL/cl.h presence
 Configure miss: CL/cl.h
 Configure miss: OpenCL/cl.h usability
 Configure miss: OpenCL/cl.h presence
 Configure miss: OpenCL/cl.h
+Configure miss: AMD's SDK cl.h
+Configure miss: NVIDIA's SDK cl.h
 Configure miss: arm/limits.h usability
 Configure miss: arm/limits.h presence
 Configure miss: arm/limits.h
@@ -92,13 +93,14 @@ Configure miss: Windows fonts directory
 Configure miss: 7za
 Configure miss: if malloc debugging is wanted
 Configure miss: linker lazyload option
-Configure miss: whether we are using the Microsoft C compiler
 Configure miss: CL/cl.h usability
 Configure miss: CL/cl.h presence
 Configure miss: CL/cl.h
 Configure miss: OpenCL/cl.h usability
 Configure miss: OpenCL/cl.h presence
 Configure miss: OpenCL/cl.h
+Configure miss: AMD's SDK cl.h
+Configure miss: NVIDIA's SDK cl.h
 Configure miss: arm/limits.h usability
 Configure miss: arm/limits.h presence
 Configure miss: arm/limits.h
