@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.10.35
-Release  : 146
+Release  : 147
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-35.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-35.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-35.tar.xz.asc
