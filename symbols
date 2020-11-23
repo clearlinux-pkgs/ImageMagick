@@ -3328,6 +3328,7 @@ libMagickCore-7.Q16HDRI.so.8:RegisterEPTImage
 libMagickCore-7.Q16HDRI.so.8:RegisterEXRImage
 libMagickCore-7.Q16HDRI.so.8:RegisterFAXImage
 libMagickCore-7.Q16HDRI.so.8:RegisterFITSImage
+libMagickCore-7.Q16HDRI.so.8:RegisterFL32Image
 libMagickCore-7.Q16HDRI.so.8:RegisterGIFImage
 libMagickCore-7.Q16HDRI.so.8:RegisterGRADIENTImage
 libMagickCore-7.Q16HDRI.so.8:RegisterGRAYImage
@@ -3669,6 +3670,7 @@ libMagickCore-7.Q16HDRI.so.8:UnregisterEPTImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterEXRImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterFAXImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterFITSImage
+libMagickCore-7.Q16HDRI.so.8:UnregisterFL32Image
 libMagickCore-7.Q16HDRI.so.8:UnregisterGIFImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterGRADIENTImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterGRAYImage
