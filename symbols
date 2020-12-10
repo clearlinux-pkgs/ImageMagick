@@ -3430,6 +3430,7 @@ libMagickCore-7.Q16HDRI.so.8:RegisterXPMImage
 libMagickCore-7.Q16HDRI.so.8:RegisterXPSImage
 libMagickCore-7.Q16HDRI.so.8:RegisterXTRNImage
 libMagickCore-7.Q16HDRI.so.8:RegisterXWDImage
+libMagickCore-7.Q16HDRI.so.8:RegisterYAMLImage
 libMagickCore-7.Q16HDRI.so.8:RegisterYCBCRImage
 libMagickCore-7.Q16HDRI.so.8:RegisterYUVImage
 libMagickCore-7.Q16HDRI.so.8:RelinquishAlignedMemory
@@ -3773,6 +3774,7 @@ libMagickCore-7.Q16HDRI.so.8:UnregisterXPMImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterXPSImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterXTRNImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterXWDImage
+libMagickCore-7.Q16HDRI.so.8:UnregisterYAMLImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterYCBCRImage
 libMagickCore-7.Q16HDRI.so.8:UnregisterYUVImage
 libMagickCore-7.Q16HDRI.so.8:UnsharpMaskImage
