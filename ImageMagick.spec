@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.0.10.59
-Release  : 165
+Release  : 166
 URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-59.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-59.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-59.tar.xz.asc
