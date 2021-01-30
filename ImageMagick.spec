@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.0.10.60
-Release  : 167
-URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-60.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-60.tar.xz
-Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-60.tar.xz.asc
+Version  : 7.0.10.61
+Release  : 168
+URL      : https://www.imagemagick.org/download/ImageMagick-7.0.10-61.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.0.10-61.tar.xz
+Source1  : https://www.imagemagick.org/download/ImageMagick-7.0.10-61.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -124,12 +124,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.0.10-60
-cd %{_builddir}/ImageMagick-7.0.10-60
+%setup -q -n ImageMagick-7.0.10-61
+cd %{_builddir}/ImageMagick-7.0.10-61
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.0.10-60 buildavx2
+cp -a ImageMagick-7.0.10-61 buildavx2
 popd
 
 %build
@@ -137,7 +137,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611598072
+export SOURCE_DATE_EPOCH=1612036259
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -169,12 +169,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1611598072
+export SOURCE_DATE_EPOCH=1612036259
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.0.10-60/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/7b06ae10608c179f80baf785db16ba5024423074
-cp %{_builddir}/ImageMagick-7.0.10-60/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
-cp %{_builddir}/ImageMagick-7.0.10-60/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
+cp %{_builddir}/ImageMagick-7.0.10-61/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/7b06ae10608c179f80baf785db16ba5024423074
+cp %{_builddir}/ImageMagick-7.0.10-61/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
+cp %{_builddir}/ImageMagick-7.0.10-61/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
+cp %{_builddir}/ImageMagick-7.0.10-61/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/8f4f3606a851fb55a12e38f08f6ed2857e18d7ce
 pushd ../buildavx2/
 %make_install_avx2
 popd
@@ -734,20 +735,21 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 %defattr(-,root,root,-)
 /usr/lib64/haswell/libMagick++-7.Q16HDRI.so.4
 /usr/lib64/haswell/libMagick++-7.Q16HDRI.so.4.0.0
-/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.8
-/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.8.0.0
-/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.8
-/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.8.0.0
+/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.9
+/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.9.0.0
+/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.9
+/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.9.0.0
 /usr/lib64/libMagick++-7.Q16HDRI.so.4
 /usr/lib64/libMagick++-7.Q16HDRI.so.4.0.0
-/usr/lib64/libMagickCore-7.Q16HDRI.so.8
-/usr/lib64/libMagickCore-7.Q16HDRI.so.8.0.0
-/usr/lib64/libMagickWand-7.Q16HDRI.so.8
-/usr/lib64/libMagickWand-7.Q16HDRI.so.8.0.0
+/usr/lib64/libMagickCore-7.Q16HDRI.so.9
+/usr/lib64/libMagickCore-7.Q16HDRI.so.9.0.0
+/usr/lib64/libMagickWand-7.Q16HDRI.so.9
+/usr/lib64/libMagickWand-7.Q16HDRI.so.9.0.0
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/ImageMagick/7b06ae10608c179f80baf785db16ba5024423074
+/usr/share/package-licenses/ImageMagick/8f4f3606a851fb55a12e38f08f6ed2857e18d7ce
 /usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
 /usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
 
