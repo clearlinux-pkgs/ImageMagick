@@ -53,7 +53,6 @@ Configure miss: lcms2/lcms2.h presence
 Configure miss: lcms2/lcms2.h
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: lqr-1 >= 0.1.0
-Configure miss: TIFFReadGPSDirectory
 Configure miss: if WMF package is complete 
 Configure miss: _aligned_malloc
 Configure miss: aligned_malloc
@@ -132,7 +131,6 @@ Configure miss: lcms2/lcms2.h presence
 Configure miss: lcms2/lcms2.h
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: lqr-1 >= 0.1.0
-Configure miss: TIFFReadGPSDirectory
 Configure miss: if WMF package is complete 
 Configure miss: _aligned_malloc
 Configure miss: aligned_malloc
