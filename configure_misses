@@ -1,156 +1,156 @@
-Configure miss: if malloc debugging is wanted
-Configure miss: linker lazyload option
-Configure miss: arm/limits.h usability
-Configure miss: arm/limits.h presence
-Configure miss: arm/limits.h
-Configure miss: machine/param.h usability
-Configure miss: machine/param.h presence
-Configure miss: machine/param.h
-Configure miss: mach-o/dyld.h usability
-Configure miss: mach-o/dyld.h presence
-Configure miss: mach-o/dyld.h
-Configure miss: OS.h usability
-Configure miss: OS.h presence
-Configure miss: OS.h
-Configure miss: process.h usability
-Configure miss: process.h presence
-Configure miss: sun_prefetch.h usability
-Configure miss: sun_prefetch.h presence
-Configure miss: sun_prefetch.h
-Configure miss: sys/syslimits.h usability
-Configure miss: sys/syslimits.h presence
-Configure miss: sys/syslimits.h
-Configure miss: DPS/dpsXclient.h usability
-Configure miss: DPS/dpsXclient.h presence
-Configure miss: DPS/dpsXclient.h
-Configure miss: DPSInitialize in -ldps
-Configure miss: DPSInitialize in -ldps
-Configure miss: XDPSPixelsPerPoint in -ldpstk
-Configure miss: if DPS package is complete
-Configure miss: flif.h usability
-Configure miss: flif.h presence
-Configure miss: flif.h
-Configure miss: flif_create_decoder in -lflif
-Configure miss: if FLIF package is complete
-Configure miss: fpxlib.h usability
-Configure miss: fpxlib.h presence
-Configure miss: fpxlib.h
-Configure miss: FPX_OpenImageByFilename in -lfpx
-Configure miss: if FlashPIX package is complete
-Configure miss: ddjvuapi >= 3.5.0
-Configure miss: raqm
-Configure miss: winuser.h
-Configure miss: wingdi.h
-Configure miss: if Windows GDI32 support is complete
-Configure miss: libheif
-Configure miss: jbig.h usability
-Configure miss: jbig.h presence
-Configure miss: jbig.h
-Configure miss: jbg_dec_init in -ljbig
-Configure miss: if JBIG package is complete
-Configure miss: lcms2/lcms2.h usability
-Configure miss: lcms2/lcms2.h presence
-Configure miss: lcms2/lcms2.h
-Configure miss: libopenjp2 >= 2.1.0
-Configure miss: lqr-1 >= 0.1.0
-Configure miss: if WMF package is complete 
-Configure miss: _aligned_malloc
-Configure miss: aligned_malloc
-Configure miss: directio
-Configure miss: lltostr
-Configure miss: _NSGetExecutablePath
-Configure miss: _pclose
-Configure miss: _popen
-Configure miss: spawnvp
-Configure miss: ulltostr
-Configure miss: vfprintf_l
-Configure miss: vsnprintf_l
-Configure miss: _wfopen
-Configure miss: _wstat
-Configure miss: gsx
-Configure miss: gsc
-Configure miss: gs
+Configure miss: 7za
+Configure miss: 7za
 Configure miss: Apple fonts directory
+Configure miss: Apple fonts directory
+Configure miss: DPS/dpsXclient.h
+Configure miss: DPS/dpsXclient.h
+Configure miss: DPS/dpsXclient.h presence
+Configure miss: DPS/dpsXclient.h presence
+Configure miss: DPS/dpsXclient.h usability
+Configure miss: DPS/dpsXclient.h usability
+Configure miss: DPSInitialize in -ldps
+Configure miss: DPSInitialize in -ldps
+Configure miss: DPSInitialize in -ldps
+Configure miss: DPSInitialize in -ldps
 Configure miss: Dejavu fonts directory
+Configure miss: Dejavu fonts directory
+Configure miss: FPX_OpenImageByFilename in -lfpx
+Configure miss: FPX_OpenImageByFilename in -lfpx
 Configure miss: Ghostscript fonts directory
+Configure miss: Ghostscript fonts directory
+Configure miss: OS.h
+Configure miss: OS.h
+Configure miss: OS.h presence
+Configure miss: OS.h presence
+Configure miss: OS.h usability
+Configure miss: OS.h usability
+Configure miss: URW-base35 fonts directory
 Configure miss: URW-base35 fonts directory
 Configure miss: Windows fonts directory
-Configure miss: 7za
-Configure miss: if malloc debugging is wanted
-Configure miss: linker lazyload option
-Configure miss: arm/limits.h usability
-Configure miss: arm/limits.h presence
-Configure miss: arm/limits.h
-Configure miss: machine/param.h usability
-Configure miss: machine/param.h presence
-Configure miss: machine/param.h
-Configure miss: mach-o/dyld.h usability
-Configure miss: mach-o/dyld.h presence
-Configure miss: mach-o/dyld.h
-Configure miss: OS.h usability
-Configure miss: OS.h presence
-Configure miss: OS.h
-Configure miss: process.h usability
-Configure miss: process.h presence
-Configure miss: sun_prefetch.h usability
-Configure miss: sun_prefetch.h presence
-Configure miss: sun_prefetch.h
-Configure miss: sys/syslimits.h usability
-Configure miss: sys/syslimits.h presence
-Configure miss: sys/syslimits.h
-Configure miss: DPS/dpsXclient.h usability
-Configure miss: DPS/dpsXclient.h presence
-Configure miss: DPS/dpsXclient.h
-Configure miss: DPSInitialize in -ldps
-Configure miss: DPSInitialize in -ldps
+Configure miss: Windows fonts directory
 Configure miss: XDPSPixelsPerPoint in -ldpstk
-Configure miss: if DPS package is complete
-Configure miss: flif.h usability
-Configure miss: flif.h presence
-Configure miss: flif.h
-Configure miss: flif_create_decoder in -lflif
-Configure miss: if FLIF package is complete
-Configure miss: fpxlib.h usability
-Configure miss: fpxlib.h presence
-Configure miss: fpxlib.h
-Configure miss: FPX_OpenImageByFilename in -lfpx
-Configure miss: if FlashPIX package is complete
-Configure miss: ddjvuapi >= 3.5.0
-Configure miss: raqm
-Configure miss: winuser.h
-Configure miss: wingdi.h
-Configure miss: if Windows GDI32 support is complete
-Configure miss: libheif
-Configure miss: jbig.h usability
-Configure miss: jbig.h presence
-Configure miss: jbig.h
-Configure miss: jbg_dec_init in -ljbig
-Configure miss: if JBIG package is complete
-Configure miss: lcms2/lcms2.h usability
-Configure miss: lcms2/lcms2.h presence
-Configure miss: lcms2/lcms2.h
-Configure miss: libopenjp2 >= 2.1.0
-Configure miss: lqr-1 >= 0.1.0
-Configure miss: if WMF package is complete 
-Configure miss: _aligned_malloc
-Configure miss: aligned_malloc
-Configure miss: directio
-Configure miss: lltostr
+Configure miss: XDPSPixelsPerPoint in -ldpstk
 Configure miss: _NSGetExecutablePath
+Configure miss: _NSGetExecutablePath
+Configure miss: _aligned_malloc
+Configure miss: _aligned_malloc
+Configure miss: _pclose
 Configure miss: _pclose
 Configure miss: _popen
-Configure miss: spawnvp
-Configure miss: ulltostr
-Configure miss: vfprintf_l
-Configure miss: vsnprintf_l
+Configure miss: _popen
+Configure miss: _wfopen
 Configure miss: _wfopen
 Configure miss: _wstat
-Configure miss: gsx
-Configure miss: gsc
+Configure miss: _wstat
+Configure miss: aligned_malloc
+Configure miss: aligned_malloc
+Configure miss: arm/limits.h
+Configure miss: arm/limits.h
+Configure miss: arm/limits.h presence
+Configure miss: arm/limits.h presence
+Configure miss: arm/limits.h usability
+Configure miss: arm/limits.h usability
+Configure miss: ddjvuapi >= 3.5.0
+Configure miss: ddjvuapi >= 3.5.0
+Configure miss: directio
+Configure miss: directio
+Configure miss: flif.h
+Configure miss: flif.h
+Configure miss: flif.h presence
+Configure miss: flif.h presence
+Configure miss: flif.h usability
+Configure miss: flif.h usability
+Configure miss: flif_create_decoder in -lflif
+Configure miss: flif_create_decoder in -lflif
+Configure miss: fpxlib.h
+Configure miss: fpxlib.h
+Configure miss: fpxlib.h presence
+Configure miss: fpxlib.h presence
+Configure miss: fpxlib.h usability
+Configure miss: fpxlib.h usability
 Configure miss: gs
-Configure miss: Apple fonts directory
-Configure miss: Dejavu fonts directory
-Configure miss: Ghostscript fonts directory
-Configure miss: URW-base35 fonts directory
-Configure miss: Windows fonts directory
-Configure miss: 7za
+Configure miss: gs
+Configure miss: gsc
+Configure miss: gsc
+Configure miss: gsx
+Configure miss: gsx
+Configure miss: if DPS package is complete
+Configure miss: if DPS package is complete
+Configure miss: if FLIF package is complete
+Configure miss: if FLIF package is complete
+Configure miss: if FlashPIX package is complete
+Configure miss: if FlashPIX package is complete
+Configure miss: if JBIG package is complete
+Configure miss: if JBIG package is complete
+Configure miss: if WMF package is complete 
+Configure miss: if WMF package is complete 
+Configure miss: if Windows GDI32 support is complete
+Configure miss: if Windows GDI32 support is complete
+Configure miss: if malloc debugging is wanted
+Configure miss: if malloc debugging is wanted
+Configure miss: jbg_dec_init in -ljbig
+Configure miss: jbg_dec_init in -ljbig
+Configure miss: jbig.h
+Configure miss: jbig.h
+Configure miss: jbig.h presence
+Configure miss: jbig.h presence
+Configure miss: jbig.h usability
+Configure miss: jbig.h usability
+Configure miss: lcms2/lcms2.h
+Configure miss: lcms2/lcms2.h
+Configure miss: lcms2/lcms2.h presence
+Configure miss: lcms2/lcms2.h presence
+Configure miss: lcms2/lcms2.h usability
+Configure miss: lcms2/lcms2.h usability
+Configure miss: libheif
+Configure miss: libheif
+Configure miss: libopenjp2 >= 2.1.0
+Configure miss: libopenjp2 >= 2.1.0
+Configure miss: linker lazyload option
+Configure miss: linker lazyload option
+Configure miss: lltostr
+Configure miss: lltostr
+Configure miss: lqr-1 >= 0.1.0
+Configure miss: lqr-1 >= 0.1.0
+Configure miss: mach-o/dyld.h
+Configure miss: mach-o/dyld.h
+Configure miss: mach-o/dyld.h presence
+Configure miss: mach-o/dyld.h presence
+Configure miss: mach-o/dyld.h usability
+Configure miss: mach-o/dyld.h usability
+Configure miss: machine/param.h
+Configure miss: machine/param.h
+Configure miss: machine/param.h presence
+Configure miss: machine/param.h presence
+Configure miss: machine/param.h usability
+Configure miss: machine/param.h usability
+Configure miss: process.h presence
+Configure miss: process.h presence
+Configure miss: process.h usability
+Configure miss: process.h usability
+Configure miss: raqm
+Configure miss: raqm
+Configure miss: spawnvp
+Configure miss: spawnvp
+Configure miss: sun_prefetch.h
+Configure miss: sun_prefetch.h
+Configure miss: sun_prefetch.h presence
+Configure miss: sun_prefetch.h presence
+Configure miss: sun_prefetch.h usability
+Configure miss: sun_prefetch.h usability
+Configure miss: sys/syslimits.h
+Configure miss: sys/syslimits.h
+Configure miss: sys/syslimits.h presence
+Configure miss: sys/syslimits.h presence
+Configure miss: sys/syslimits.h usability
+Configure miss: sys/syslimits.h usability
+Configure miss: ulltostr
+Configure miss: ulltostr
+Configure miss: vfprintf_l
+Configure miss: vfprintf_l
+Configure miss: vsnprintf_l
+Configure miss: vsnprintf_l
+Configure miss: wingdi.h
+Configure miss: wingdi.h
+Configure miss: winuser.h
+Configure miss: winuser.h
