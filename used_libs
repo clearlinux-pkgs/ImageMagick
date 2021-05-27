@@ -1,9 +1,8 @@
-libHalf-2_5.so.25
-libIex-2_5.so.25
-libIexMath-2_5.so.25
-libIlmImf-2_5.so.25
-libIlmThread-2_5.so.25
-libImath-2_5.so.25
+libIex-3_0.so.28
+libIlmThread-3_0.so.28
+libImath-3_0.so.28
+libOpenEXR-3_0.so.28
+libOpenEXRUtil-3_0.so.28
 libX11.so.6
 libXt.so.6
 libbz2.so.1.0
