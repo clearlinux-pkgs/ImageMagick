@@ -3620,6 +3620,7 @@ libMagickCore-7.Q16HDRI.so.10:StringToStringInfo
 libMagickCore-7.Q16HDRI.so.10:StringToStrings
 libMagickCore-7.Q16HDRI.so.10:StringToken
 libMagickCore-7.Q16HDRI.so.10:StripImage
+libMagickCore-7.Q16HDRI.so.10:StripMagickString
 libMagickCore-7.Q16HDRI.so.10:StripString
 libMagickCore-7.Q16HDRI.so.10:SubstituteString
 libMagickCore-7.Q16HDRI.so.10:SwirlImage
