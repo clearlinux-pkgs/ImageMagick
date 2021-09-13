@@ -3826,8 +3826,6 @@ libMagickCore-7.Q16HDRI.so.10:XRemoteCommand
 libMagickCore-7.Q16HDRI.so.10:XRetainWindowColors
 libMagickCore-7.Q16HDRI.so.10:ZLIBEncodeImage
 libMagickCore-7.Q16HDRI.so.10:analyzeImage
-libMagickCore-7.Q16HDRI.so.10:sixel_decode
-libMagickCore-7.Q16HDRI.so.10:sixel_output_create
 libMagickWand-7.Q16HDRI.so.10:AcquireDrawingWand
 libMagickWand-7.Q16HDRI.so.10:AcquireMagickCLI
 libMagickWand-7.Q16HDRI.so.10:AcquireScriptTokenInfo
