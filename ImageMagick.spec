@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.0.9
-Release  : 198
+Release  : 199
 URL      : https://www.imagemagick.org/download/ImageMagick-7.1.0-9.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.1.0-9.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.1.0-9.tar.xz.asc
@@ -15,6 +15,7 @@ Group    : Development/Tools
 License  : ImageMagick MIT
 Requires: ImageMagick-bin = %{version}-%{release}
 Requires: ImageMagick-data = %{version}-%{release}
+Requires: ImageMagick-filemap = %{version}-%{release}
 Requires: ImageMagick-lib = %{version}-%{release}
 Requires: ImageMagick-license = %{version}-%{release}
 Requires: ImageMagick-man = %{version}-%{release}
@@ -62,6 +63,7 @@ Summary: bin components for the ImageMagick package.
 Group: Binaries
 Requires: ImageMagick-data = %{version}-%{release}
 Requires: ImageMagick-license = %{version}-%{release}
+Requires: ImageMagick-filemap = %{version}-%{release}
 
 %description bin
 bin components for the ImageMagick package.
@@ -97,11 +99,20 @@ Requires: ImageMagick-man = %{version}-%{release}
 doc components for the ImageMagick package.
 
 
+%package filemap
+Summary: filemap components for the ImageMagick package.
+Group: Default
+
+%description filemap
+filemap components for the ImageMagick package.
+
+
 %package lib
 Summary: lib components for the ImageMagick package.
 Group: Libraries
 Requires: ImageMagick-data = %{version}-%{release}
 Requires: ImageMagick-license = %{version}-%{release}
+Requires: ImageMagick-filemap = %{version}-%{release}
 
 %description lib
 lib components for the ImageMagick package.
@@ -137,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1633358356
+export SOURCE_DATE_EPOCH=1633754958
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -169,7 +180,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1633358356
+export SOURCE_DATE_EPOCH=1633754958
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.1.0-9/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/7b06ae10608c179f80baf785db16ba5024423074
@@ -177,7 +188,8 @@ cp %{_builddir}/ImageMagick-7.1.0-9/Magick++/LICENSE %{buildroot}/usr/share/pack
 cp %{_builddir}/ImageMagick-7.1.0-9/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
 cp %{_builddir}/ImageMagick-7.1.0-9/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/c1845caad925bb4c31c290ca75ed29903941ea10
 pushd ../buildavx2/
-%make_install_avx2
+%make_install_v3
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 popd
 %make_install
 ## install_append content
@@ -203,19 +215,6 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/bin/conjure
 /usr/bin/convert
 /usr/bin/display
-/usr/bin/haswell/animate
-/usr/bin/haswell/compare
-/usr/bin/haswell/composite
-/usr/bin/haswell/conjure
-/usr/bin/haswell/convert
-/usr/bin/haswell/display
-/usr/bin/haswell/identify
-/usr/bin/haswell/import
-/usr/bin/haswell/magick
-/usr/bin/haswell/magick-script
-/usr/bin/haswell/mogrify
-/usr/bin/haswell/montage
-/usr/bin/haswell/stream
 /usr/bin/identify
 /usr/bin/import
 /usr/bin/magick
@@ -223,6 +222,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/bin/mogrify
 /usr/bin/montage
 /usr/bin/stream
+/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -383,9 +383,6 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/include/ImageMagick-7/MagickWand/stream.h
 /usr/include/ImageMagick-7/MagickWand/wand-view.h
 /usr/include/ImageMagick-7/MagickWand/wandcli.h
-/usr/lib64/haswell/libMagick++-7.Q16HDRI.so
-/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so
-/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so
 /usr/lib64/libMagick++-7.Q16HDRI.so
 /usr/lib64/libMagickCore-7.Q16HDRI.so
 /usr/lib64/libMagickWand-7.Q16HDRI.so
@@ -733,20 +730,19 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/www/wand.png
 /usr/share/doc/ImageMagick-7/www/webp.html
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-ImageMagick
+
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/haswell/libMagick++-7.Q16HDRI.so.5
-/usr/lib64/haswell/libMagick++-7.Q16HDRI.so.5.0.0
-/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.10
-/usr/lib64/haswell/libMagickCore-7.Q16HDRI.so.10.0.0
-/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.10
-/usr/lib64/haswell/libMagickWand-7.Q16HDRI.so.10.0.0
 /usr/lib64/libMagick++-7.Q16HDRI.so.5
 /usr/lib64/libMagick++-7.Q16HDRI.so.5.0.0
 /usr/lib64/libMagickCore-7.Q16HDRI.so.10
 /usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.0
 /usr/lib64/libMagickWand-7.Q16HDRI.so.10
 /usr/lib64/libMagickWand-7.Q16HDRI.so.10.0.0
+/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
