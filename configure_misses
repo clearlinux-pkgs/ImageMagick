@@ -54,14 +54,6 @@ Configure miss: ddjvuapi >= 3.5.0
 Configure miss: ddjvuapi >= 3.5.0
 Configure miss: directio
 Configure miss: directio
-Configure miss: flif.h
-Configure miss: flif.h
-Configure miss: flif.h presence
-Configure miss: flif.h presence
-Configure miss: flif.h usability
-Configure miss: flif.h usability
-Configure miss: flif_create_decoder in -lflif
-Configure miss: flif_create_decoder in -lflif
 Configure miss: fpxlib.h
 Configure miss: fpxlib.h
 Configure miss: fpxlib.h presence
@@ -76,8 +68,6 @@ Configure miss: gsx
 Configure miss: gsx
 Configure miss: if DPS package is complete
 Configure miss: if DPS package is complete
-Configure miss: if FLIF package is complete
-Configure miss: if FLIF package is complete
 Configure miss: if FlashPIX package is complete
 Configure miss: if FlashPIX package is complete
 Configure miss: if JBIG package is complete
