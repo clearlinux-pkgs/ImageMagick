@@ -3402,6 +3402,7 @@ libMagickCore-7.Q16HDRI.so.10:RegisterSFWImage
 libMagickCore-7.Q16HDRI.so.10:RegisterSGIImage
 libMagickCore-7.Q16HDRI.so.10:RegisterSIXELImage
 libMagickCore-7.Q16HDRI.so.10:RegisterSTEGANOImage
+libMagickCore-7.Q16HDRI.so.10:RegisterSTRIMGImage
 libMagickCore-7.Q16HDRI.so.10:RegisterSUNImage
 libMagickCore-7.Q16HDRI.so.10:RegisterSVGImage
 libMagickCore-7.Q16HDRI.so.10:RegisterStaticModule
@@ -3432,7 +3433,6 @@ libMagickCore-7.Q16HDRI.so.10:RegisterXCImage
 libMagickCore-7.Q16HDRI.so.10:RegisterXImage
 libMagickCore-7.Q16HDRI.so.10:RegisterXPMImage
 libMagickCore-7.Q16HDRI.so.10:RegisterXPSImage
-libMagickCore-7.Q16HDRI.so.10:RegisterXTRNImage
 libMagickCore-7.Q16HDRI.so.10:RegisterXWDImage
 libMagickCore-7.Q16HDRI.so.10:RegisterYAMLImage
 libMagickCore-7.Q16HDRI.so.10:RegisterYCBCRImage
@@ -3750,6 +3750,7 @@ libMagickCore-7.Q16HDRI.so.10:UnregisterSFWImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterSGIImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterSIXELImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterSTEGANOImage
+libMagickCore-7.Q16HDRI.so.10:UnregisterSTRIMGImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterSUNImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterSVGImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterStaticModule
@@ -3780,7 +3781,6 @@ libMagickCore-7.Q16HDRI.so.10:UnregisterXCImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterXImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterXPMImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterXPSImage
-libMagickCore-7.Q16HDRI.so.10:UnregisterXTRNImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterXWDImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterYAMLImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterYCBCRImage
