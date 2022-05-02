@@ -2963,6 +2963,7 @@ libMagickCore-7.Q16HDRI.so.10:GetLocaleList
 libMagickCore-7.Q16HDRI.so.10:GetLocaleMessage
 libMagickCore-7.Q16HDRI.so.10:GetLocaleOptions
 libMagickCore-7.Q16HDRI.so.10:GetLocaleValue
+libMagickCore-7.Q16HDRI.so.10:GetLogEventMask
 libMagickCore-7.Q16HDRI.so.10:GetLogInfoList
 libMagickCore-7.Q16HDRI.so.10:GetLogList
 libMagickCore-7.Q16HDRI.so.10:GetLogName
