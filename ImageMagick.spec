@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.1.0.32
-Release  : 224
-URL      : https://www.imagemagick.org/download/ImageMagick-7.1.0-32.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.1.0-32.tar.xz
-Source1  : https://www.imagemagick.org/download/ImageMagick-7.1.0-32.tar.xz.asc
+Version  : 7.1.0.33
+Release  : 225
+URL      : https://www.imagemagick.org/download/ImageMagick-7.1.0-33.tar.xz
+Source0  : https://www.imagemagick.org/download/ImageMagick-7.1.0-33.tar.xz
+Source1  : https://www.imagemagick.org/download/ImageMagick-7.1.0-33.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -135,12 +135,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.1.0-32
-cd %{_builddir}/ImageMagick-7.1.0-32
+%setup -q -n ImageMagick-7.1.0-33
+cd %{_builddir}/ImageMagick-7.1.0-33
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.1.0-32 buildavx2
+cp -a ImageMagick-7.1.0-33 buildavx2
 popd
 
 %build
@@ -148,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1651520263
+export SOURCE_DATE_EPOCH=1651944154
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -180,12 +180,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1651520263
+export SOURCE_DATE_EPOCH=1651944154
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.1.0-32/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d
-cp %{_builddir}/ImageMagick-7.1.0-32/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
-cp %{_builddir}/ImageMagick-7.1.0-32/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
+cp %{_builddir}/ImageMagick-7.1.0-33/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d
+cp %{_builddir}/ImageMagick-7.1.0-33/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
+cp %{_builddir}/ImageMagick-7.1.0-33/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec
+cp %{_builddir}/ImageMagick-7.1.0-33/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
 pushd ../buildavx2/
 %make_install_v3
 popd
@@ -745,6 +746,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec
 /usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d
 /usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
 /usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
