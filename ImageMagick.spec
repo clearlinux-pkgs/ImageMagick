@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.0.37
-Release  : 230
+Release  : 231
 URL      : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz.asc
