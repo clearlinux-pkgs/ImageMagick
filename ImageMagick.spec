@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.0.37
-Release  : 232
+Release  : 233
 URL      : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz.asc
@@ -148,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654718116
+export SOURCE_DATE_EPOCH=1655754554
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -180,7 +180,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1654718116
+export SOURCE_DATE_EPOCH=1655754554
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.1.0-37/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d
@@ -199,7 +199,7 @@ cp %{buildroot}/etc/ImageMagick-7/* %{buildroot}/usr/share/defaults/ImageMagick-
 mkdir -p %{buildroot}/usr/share/ImageMagick-7/
 install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 ## install_append end
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -737,13 +737,21 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so.5
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so.5.0.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so.10
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so.10.0.0
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so.10
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so.10.0.0
 /usr/lib64/libMagick++-7.Q16HDRI.so.5
 /usr/lib64/libMagick++-7.Q16HDRI.so.5.0.0
 /usr/lib64/libMagickCore-7.Q16HDRI.so.10
 /usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.0
 /usr/lib64/libMagickWand-7.Q16HDRI.so.10
 /usr/lib64/libMagickWand-7.Q16HDRI.so.10.0.0
-/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
