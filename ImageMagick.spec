@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.0.37
-Release  : 234
+Release  : 235
 URL      : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
 Source0  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
 Source1  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz.asc
@@ -148,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656044165
+export SOURCE_DATE_EPOCH=1656126557
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -180,7 +180,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1656044165
+export SOURCE_DATE_EPOCH=1656126557
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.1.0-37/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d
