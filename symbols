@@ -3310,6 +3310,7 @@ libMagickCore-7.Q16HDRI.so.10:RegisterAAIImage
 libMagickCore-7.Q16HDRI.so.10:RegisterARTImage
 libMagickCore-7.Q16HDRI.so.10:RegisterASHLARImage
 libMagickCore-7.Q16HDRI.so.10:RegisterAVSImage
+libMagickCore-7.Q16HDRI.so.10:RegisterBAYERImage
 libMagickCore-7.Q16HDRI.so.10:RegisterBGRImage
 libMagickCore-7.Q16HDRI.so.10:RegisterBMPImage
 libMagickCore-7.Q16HDRI.so.10:RegisterBRAILLEImage
@@ -3658,6 +3659,7 @@ libMagickCore-7.Q16HDRI.so.10:UnregisterAAIImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterARTImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterASHLARImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterAVSImage
+libMagickCore-7.Q16HDRI.so.10:UnregisterBAYERImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterBGRImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterBMPImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterBRAILLEImage

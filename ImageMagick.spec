@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.1.0.37
-Release  : 235
-URL      : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
-Source0  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz
-Source1  : https://www.imagemagick.org/download/ImageMagick-7.1.0-37.tar.xz.asc
+Version  : 7.1.0.44
+Release  : 236
+URL      : https://imagemagick.org/archive/ImageMagick-7.1.0-44.tar.xz
+Source0  : https://imagemagick.org/archive/ImageMagick-7.1.0-44.tar.xz
+Source1  : https://imagemagick.org/archive/ImageMagick-7.1.0-44.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -135,12 +135,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.1.0-37
-cd %{_builddir}/ImageMagick-7.1.0-37
+%setup -q -n ImageMagick-7.1.0-44
+cd %{_builddir}/ImageMagick-7.1.0-44
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.1.0-37 buildavx2
+cp -a ImageMagick-7.1.0-44 buildavx2
 popd
 
 %build
@@ -148,7 +148,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656126557
+export SOURCE_DATE_EPOCH=1658945267
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -180,14 +180,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1656126557
+export SOURCE_DATE_EPOCH=1658945267
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.1.0-37/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d
-cp %{_builddir}/ImageMagick-7.1.0-37/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
-cp %{_builddir}/ImageMagick-7.1.0-37/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec
-cp %{_builddir}/ImageMagick-7.1.0-37/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
-cp %{_builddir}/ImageMagick-7.1.0-37/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/30955be904939b0a10dd366e4aebfe7501d89c5d
+cp %{_builddir}/ImageMagick-7.1.0-44/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d
+cp %{_builddir}/ImageMagick-7.1.0-44/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666
+cp %{_builddir}/ImageMagick-7.1.0-44/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec
+cp %{_builddir}/ImageMagick-7.1.0-44/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565
+cp %{_builddir}/ImageMagick-7.1.0-44/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/30955be904939b0a10dd366e4aebfe7501d89c5d
 pushd ../buildavx2/
 %make_install_v3
 popd
@@ -384,6 +384,9 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/include/ImageMagick-7/MagickWand/stream.h
 /usr/include/ImageMagick-7/MagickWand/wand-view.h
 /usr/include/ImageMagick-7/MagickWand/wandcli.h
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so
 /usr/lib64/libMagick++-7.Q16HDRI.so
 /usr/lib64/libMagickCore-7.Q16HDRI.so
 /usr/lib64/libMagickWand-7.Q16HDRI.so
@@ -737,13 +740,10 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so.5
 /usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so.5.0.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so.10
 /usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so.10.0.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so.10
 /usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so.10.0.0
 /usr/lib64/libMagick++-7.Q16HDRI.so.5
