@@ -6,7 +6,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.0.48
-Release  : 243
+Release  : 244
 URL      : https://imagemagick.org/archive/ImageMagick-7.1.0-48.tar.xz
 Source0  : https://imagemagick.org/archive/ImageMagick-7.1.0-48.tar.xz
 Source1  : https://imagemagick.org/archive/ImageMagick-7.1.0-48.tar.xz.asc
