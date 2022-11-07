@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.1.0.51
-Release  : 248
-URL      : https://imagemagick.org/archive/ImageMagick-7.1.0-51.tar.xz
-Source0  : https://imagemagick.org/archive/ImageMagick-7.1.0-51.tar.xz
-Source1  : https://imagemagick.org/archive/ImageMagick-7.1.0-51.tar.xz.asc
+Version  : 7.1.0.52
+Release  : 249
+URL      : https://imagemagick.org/archive/ImageMagick-7.1.0-52.tar.xz
+Source0  : https://imagemagick.org/archive/ImageMagick-7.1.0-52.tar.xz
+Source1  : https://imagemagick.org/archive/ImageMagick-7.1.0-52.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -135,12 +135,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.1.0-51
-cd %{_builddir}/ImageMagick-7.1.0-51
+%setup -q -n ImageMagick-7.1.0-52
+cd %{_builddir}/ImageMagick-7.1.0-52
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.1.0-51 buildavx2
+cp -a ImageMagick-7.1.0-52 buildavx2
 popd
 
 %build
@@ -148,15 +148,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666016643
+export SOURCE_DATE_EPOCH=1667834650
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition "
 %configure --disable-static --disable-openmp \
 --enable-hugepages
 make  %{?_smp_mflags}
@@ -180,14 +180,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1666016643
+export SOURCE_DATE_EPOCH=1667834650
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.1.0-51/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d || :
-cp %{_builddir}/ImageMagick-7.1.0-51/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
-cp %{_builddir}/ImageMagick-7.1.0-51/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
-cp %{_builddir}/ImageMagick-7.1.0-51/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
-cp %{_builddir}/ImageMagick-7.1.0-51/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/30955be904939b0a10dd366e4aebfe7501d89c5d || :
+cp %{_builddir}/ImageMagick-7.1.0-52/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d || :
+cp %{_builddir}/ImageMagick-7.1.0-52/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
+cp %{_builddir}/ImageMagick-7.1.0-52/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
+cp %{_builddir}/ImageMagick-7.1.0-52/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
+cp %{_builddir}/ImageMagick-7.1.0-52/www/license.html %{buildroot}/usr/share/package-licenses/ImageMagick/30955be904939b0a10dd366e4aebfe7501d89c5d || :
 pushd ../buildavx2/
 %make_install_v3
 popd
