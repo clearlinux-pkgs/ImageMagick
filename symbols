@@ -3186,6 +3186,7 @@ libMagickCore-7.Q16HDRI.so.10:ListMagickResourceInfo
 libMagickCore-7.Q16HDRI.so.10:ListMagickVersion
 libMagickCore-7.Q16HDRI.so.10:ListMimeInfo
 libMagickCore-7.Q16HDRI.so.10:ListModuleInfo
+libMagickCore-7.Q16HDRI.so.10:ListPagesizes
 libMagickCore-7.Q16HDRI.so.10:ListPolicyInfo
 libMagickCore-7.Q16HDRI.so.10:ListThresholdMapFile
 libMagickCore-7.Q16HDRI.so.10:ListThresholdMaps
