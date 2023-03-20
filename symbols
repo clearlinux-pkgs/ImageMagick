@@ -2647,6 +2647,7 @@ libMagickCore-7.Q16HDRI.so.10:AppendValueToLinkedList
 libMagickCore-7.Q16HDRI.so.10:Ascii85Encode
 libMagickCore-7.Q16HDRI.so.10:Ascii85Flush
 libMagickCore-7.Q16HDRI.so.10:Ascii85Initialize
+libMagickCore-7.Q16HDRI.so.10:AsynchronousResourceComponentTerminus
 libMagickCore-7.Q16HDRI.so.10:AttachBlob
 libMagickCore-7.Q16HDRI.so.10:AttachCustomStream
 libMagickCore-7.Q16HDRI.so.10:AutoGammaImage
