@@ -32,6 +32,10 @@ Configure miss: ddjvuapi >= 3.5.0
 Configure miss: ddjvuapi >= 3.5.0
 Configure miss: directio
 Configure miss: directio
+Configure miss: fontconfig >= 2.1.0
+Configure miss: fontconfig >= 2.1.0
+Configure miss: freetype2 >= 2.8.0
+Configure miss: freetype2 >= 2.8.0
 Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
 Configure miss: gcc options needed to detect all undeclared functions
@@ -54,14 +58,30 @@ Configure miss: jbg_dec_init in -ljbig
 Configure miss: jbg_dec_init in -ljbig
 Configure miss: jbig.h
 Configure miss: jbig.h
-Configure miss: lcms2/lcms2.h
-Configure miss: lcms2/lcms2.h
+Configure miss: lcms2 >= 2.0.0
+Configure miss: lcms2 >= 2.0.0
+Configure miss: libgvc >= 2.9.0
+Configure miss: libgvc >= 2.9.0
 Configure miss: libheif >= 1.4.0
 Configure miss: libheif >= 1.4.0
 Configure miss: libjxl >= 0.7.0 libjxl_threads
 Configure miss: libjxl >= 0.7.0 libjxl_threads
+Configure miss: liblzma >= 2.9.0
+Configure miss: liblzma >= 2.9.0
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: libopenjp2 >= 2.1.0
+Configure miss: libpng >= 1.0.0
+Configure miss: libpng >= 1.0.0
+Configure miss: libraw_r >= 0.14.8
+Configure miss: libraw_r >= 0.14.8
+Configure miss: libtiff-4 >= 4.0.0
+Configure miss: libtiff-4 >= 4.0.0
+Configure miss: libxml-2.0 >= 2.0.0
+Configure miss: libxml-2.0 >= 2.0.0
+Configure miss: libzip >= 1.0.0
+Configure miss: libzip >= 1.0.0
+Configure miss: libzstd >= 1.0.0
+Configure miss: libzstd >= 1.0.0
 Configure miss: linker lazyload option
 Configure miss: linker lazyload option
 Configure miss: lltostr
@@ -72,6 +92,10 @@ Configure miss: mach-o/dyld.h
 Configure miss: mach-o/dyld.h
 Configure miss: machine/param.h
 Configure miss: machine/param.h
+Configure miss: pango >= 1.28.1
+Configure miss: pango >= 1.28.1
+Configure miss: pangocairo >= 1.28.1
+Configure miss: pangocairo >= 1.28.1
 Configure miss: raqm
 Configure miss: raqm
 Configure miss: spawnvp
@@ -94,3 +118,5 @@ Configure miss: winuser.h
 Configure miss: winuser.h
 Configure miss: x86_64-generic-linux-gnu-file
 Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: zlib >= 1.0.0
+Configure miss: zlib >= 1.0.0

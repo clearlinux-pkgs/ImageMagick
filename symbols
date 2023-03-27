@@ -3192,7 +3192,6 @@ libMagickCore-7.Q16HDRI.so.10:ListPolicyInfo
 libMagickCore-7.Q16HDRI.so.10:ListThresholdMapFile
 libMagickCore-7.Q16HDRI.so.10:ListThresholdMaps
 libMagickCore-7.Q16HDRI.so.10:ListTypeInfo
-libMagickCore-7.Q16HDRI.so.10:LoadFontConfigFonts
 libMagickCore-7.Q16HDRI.so.10:LocalContrastImage
 libMagickCore-7.Q16HDRI.so.10:LocaleCompare
 libMagickCore-7.Q16HDRI.so.10:LocaleLower
@@ -3331,7 +3330,6 @@ libMagickCore-7.Q16HDRI.so.10:RegisterDIBImage
 libMagickCore-7.Q16HDRI.so.10:RegisterDNGImage
 libMagickCore-7.Q16HDRI.so.10:RegisterDOTImage
 libMagickCore-7.Q16HDRI.so.10:RegisterDPXImage
-libMagickCore-7.Q16HDRI.so.10:RegisterEPTImage
 libMagickCore-7.Q16HDRI.so.10:RegisterEXRImage
 libMagickCore-7.Q16HDRI.so.10:RegisterFARBFELDImage
 libMagickCore-7.Q16HDRI.so.10:RegisterFAXImage
@@ -3386,7 +3384,6 @@ libMagickCore-7.Q16HDRI.so.10:RegisterPGXImage
 libMagickCore-7.Q16HDRI.so.10:RegisterPICTImage
 libMagickCore-7.Q16HDRI.so.10:RegisterPIXImage
 libMagickCore-7.Q16HDRI.so.10:RegisterPLASMAImage
-libMagickCore-7.Q16HDRI.so.10:RegisterPNGImage
 libMagickCore-7.Q16HDRI.so.10:RegisterPNMImage
 libMagickCore-7.Q16HDRI.so.10:RegisterPS2Image
 libMagickCore-7.Q16HDRI.so.10:RegisterPS3Image
@@ -3413,7 +3410,6 @@ libMagickCore-7.Q16HDRI.so.10:RegisterStaticModule
 libMagickCore-7.Q16HDRI.so.10:RegisterStaticModules
 libMagickCore-7.Q16HDRI.so.10:RegisterTGAImage
 libMagickCore-7.Q16HDRI.so.10:RegisterTHUMBNAILImage
-libMagickCore-7.Q16HDRI.so.10:RegisterTIFFImage
 libMagickCore-7.Q16HDRI.so.10:RegisterTILEImage
 libMagickCore-7.Q16HDRI.so.10:RegisterTIM2Image
 libMagickCore-7.Q16HDRI.so.10:RegisterTIMImage
@@ -3680,7 +3676,6 @@ libMagickCore-7.Q16HDRI.so.10:UnregisterDIBImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterDNGImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterDOTImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterDPXImage
-libMagickCore-7.Q16HDRI.so.10:UnregisterEPTImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterEXRImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterFARBFELDImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterFAXImage
@@ -3735,7 +3730,6 @@ libMagickCore-7.Q16HDRI.so.10:UnregisterPGXImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterPICTImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterPIXImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterPLASMAImage
-libMagickCore-7.Q16HDRI.so.10:UnregisterPNGImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterPNMImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterPS2Image
 libMagickCore-7.Q16HDRI.so.10:UnregisterPS3Image
@@ -3762,7 +3756,6 @@ libMagickCore-7.Q16HDRI.so.10:UnregisterStaticModule
 libMagickCore-7.Q16HDRI.so.10:UnregisterStaticModules
 libMagickCore-7.Q16HDRI.so.10:UnregisterTGAImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterTHUMBNAILImage
-libMagickCore-7.Q16HDRI.so.10:UnregisterTIFFImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterTILEImage
 libMagickCore-7.Q16HDRI.so.10:UnregisterTIM2Image
 libMagickCore-7.Q16HDRI.so.10:UnregisterTIMImage
