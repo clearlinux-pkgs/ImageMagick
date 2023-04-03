@@ -6,11 +6,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.1.1.5
-Release  : 266
-URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-5.tar.xz
-Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-5.tar.xz
-Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-5.tar.xz.asc
+Version  : 7.1.1.6
+Release  : 267
+URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-6.tar.xz
+Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-6.tar.xz
+Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-6.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : ImageMagick MIT
@@ -23,11 +23,33 @@ Requires: ImageMagick-man = %{version}-%{release}
 BuildRequires : buildreq-configure
 BuildRequires : bzip2-dev
 BuildRequires : curl-dev
+BuildRequires : lcms2-dev
 BuildRequires : libjpeg-turbo-dev
 BuildRequires : libwebp-dev
 BuildRequires : openexr-dev
+BuildRequires : pkgconfig(cairo-svg)
+BuildRequires : pkgconfig(fftw3)
+BuildRequires : pkgconfig(fontconfig)
+BuildRequires : pkgconfig(freetype2)
 BuildRequires : pkgconfig(ice)
+BuildRequires : pkgconfig(lcms2)
+BuildRequires : pkgconfig(libgvc)
+BuildRequires : pkgconfig(liblzma)
+BuildRequires : pkgconfig(libpng)
+BuildRequires : pkgconfig(libraw_r)
+BuildRequires : pkgconfig(librsvg-2.0)
+BuildRequires : pkgconfig(libtiff-4)
+BuildRequires : pkgconfig(libwebp)
+BuildRequires : pkgconfig(libwebpdemux)
+BuildRequires : pkgconfig(libwebpmux)
+BuildRequires : pkgconfig(libxml-2.0)
+BuildRequires : pkgconfig(libzip)
+BuildRequires : pkgconfig(libzstd)
+BuildRequires : pkgconfig(pango)
+BuildRequires : pkgconfig(pangocairo)
 BuildRequires : pkgconfig(xt)
+BuildRequires : pkgconfig(zlib)
+BuildRequires : sed
 BuildRequires : xdg-utils
 BuildRequires : zip
 # Suppress stripping binaries
@@ -117,12 +139,12 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.1.1-5
-cd %{_builddir}/ImageMagick-7.1.1-5
+%setup -q -n ImageMagick-7.1.1-6
+cd %{_builddir}/ImageMagick-7.1.1-6
 %patch1 -p1
 %patch2 -p1
 pushd ..
-cp -a ImageMagick-7.1.1-5 buildavx2
+cp -a ImageMagick-7.1.1-6 buildavx2
 popd
 
 %build
@@ -130,7 +152,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679933062
+export SOURCE_DATE_EPOCH=1680548848
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -162,13 +184,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1679933062
+export SOURCE_DATE_EPOCH=1680548848
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.1.1-5/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d || :
-cp %{_builddir}/ImageMagick-7.1.1-5/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
-cp %{_builddir}/ImageMagick-7.1.1-5/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
-cp %{_builddir}/ImageMagick-7.1.1-5/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
+cp %{_builddir}/ImageMagick-7.1.1-6/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d || :
+cp %{_builddir}/ImageMagick-7.1.1-6/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
+cp %{_builddir}/ImageMagick-7.1.1-6/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
+cp %{_builddir}/ImageMagick-7.1.1-6/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
 pushd ../buildavx2/
 %make_install_v3
 popd
