@@ -7,7 +7,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.1.8
-Release  : 269
+Release  : 270
 URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-8.tar.xz
 Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-8.tar.xz
 Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-8.tar.xz.asc
@@ -16,7 +16,6 @@ Group    : Development/Tools
 License  : ImageMagick MIT
 Requires: ImageMagick-bin = %{version}-%{release}
 Requires: ImageMagick-data = %{version}-%{release}
-Requires: ImageMagick-filemap = %{version}-%{release}
 Requires: ImageMagick-lib = %{version}-%{release}
 Requires: ImageMagick-license = %{version}-%{release}
 Requires: ImageMagick-man = %{version}-%{release}
@@ -67,7 +66,6 @@ Summary: bin components for the ImageMagick package.
 Group: Binaries
 Requires: ImageMagick-data = %{version}-%{release}
 Requires: ImageMagick-license = %{version}-%{release}
-Requires: ImageMagick-filemap = %{version}-%{release}
 
 %description bin
 bin components for the ImageMagick package.
@@ -103,20 +101,11 @@ Requires: ImageMagick-man = %{version}-%{release}
 doc components for the ImageMagick package.
 
 
-%package filemap
-Summary: filemap components for the ImageMagick package.
-Group: Default
-
-%description filemap
-filemap components for the ImageMagick package.
-
-
 %package lib
 Summary: lib components for the ImageMagick package.
 Group: Libraries
 Requires: ImageMagick-data = %{version}-%{release}
 Requires: ImageMagick-license = %{version}-%{release}
-Requires: ImageMagick-filemap = %{version}-%{release}
 
 %description lib
 lib components for the ImageMagick package.
@@ -152,15 +141,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682269630
+export SOURCE_DATE_EPOCH=1682985452
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 %configure --disable-static --disable-openmp \
 --enable-hugepages
 make  %{?_smp_mflags}
@@ -184,7 +173,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1682269630
+export SOURCE_DATE_EPOCH=1682985452
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.1.1-8/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d || :
@@ -210,6 +199,19 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/animate
+/V3/usr/bin/compare
+/V3/usr/bin/composite
+/V3/usr/bin/conjure
+/V3/usr/bin/convert
+/V3/usr/bin/display
+/V3/usr/bin/identify
+/V3/usr/bin/import
+/V3/usr/bin/magick
+/V3/usr/bin/magick-script
+/V3/usr/bin/mogrify
+/V3/usr/bin/montage
+/V3/usr/bin/stream
 /usr/bin/Magick++-config
 /usr/bin/MagickCore-config
 /usr/bin/MagickWand-config
@@ -226,7 +228,6 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/bin/mogrify
 /usr/bin/montage
 /usr/bin/stream
-/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -250,6 +251,9 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libMagick++-7.Q16HDRI.so
+/V3/usr/lib64/libMagickCore-7.Q16HDRI.so
+/V3/usr/lib64/libMagickWand-7.Q16HDRI.so
 /usr/include/ImageMagick-7/Magick++.h
 /usr/include/ImageMagick-7/Magick++/Blob.h
 /usr/include/ImageMagick-7/Magick++/CoderInfo.h
@@ -387,9 +391,6 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/include/ImageMagick-7/MagickWand/stream.h
 /usr/include/ImageMagick-7/MagickWand/wand-view.h
 /usr/include/ImageMagick-7/MagickWand/wandcli.h
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so
 /usr/lib64/libMagick++-7.Q16HDRI.so
 /usr/lib64/libMagickCore-7.Q16HDRI.so
 /usr/lib64/libMagickWand-7.Q16HDRI.so
@@ -739,18 +740,14 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 /usr/share/doc/ImageMagick-7/www/wand.png
 /usr/share/doc/ImageMagick-7/www/webp.html
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-ImageMagick
-
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so.5
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagick++-7.Q16HDRI.so.5.0.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so.10
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickCore-7.Q16HDRI.so.10.0.1
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so.10
-/usr/lib64/glibc-hwcaps/x86-64-v3/libMagickWand-7.Q16HDRI.so.10.0.1
+/V3/usr/lib64/libMagick++-7.Q16HDRI.so.5
+/V3/usr/lib64/libMagick++-7.Q16HDRI.so.5.0.0
+/V3/usr/lib64/libMagickCore-7.Q16HDRI.so.10
+/V3/usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.1
+/V3/usr/lib64/libMagickWand-7.Q16HDRI.so.10
+/V3/usr/lib64/libMagickWand-7.Q16HDRI.so.10.0.1
 /usr/lib64/libMagick++-7.Q16HDRI.so.5
 /usr/lib64/libMagick++-7.Q16HDRI.so.5.0.0
 /usr/lib64/libMagickCore-7.Q16HDRI.so.10
