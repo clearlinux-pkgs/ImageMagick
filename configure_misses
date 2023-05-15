@@ -6,6 +6,8 @@ Configure miss: Dejavu fonts directory
 Configure miss: Dejavu fonts directory
 Configure miss: Ghostscript fonts directory
 Configure miss: Ghostscript fonts directory
+Configure miss: MagickCache >= 0.9.3
+Configure miss: MagickCache >= 0.9.3
 Configure miss: OS.h
 Configure miss: OS.h
 Configure miss: URW-base35 fonts directory
