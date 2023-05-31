@@ -7,7 +7,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.1.9
-Release  : 272
+Release  : 273
 URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz
 Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz
 Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz.asc
@@ -141,7 +141,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684189323
+export SOURCE_DATE_EPOCH=1685552926
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -173,7 +173,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1684189323
+export SOURCE_DATE_EPOCH=1685552926
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.1.1-9/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d || :
@@ -199,19 +199,7 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files bin
 %defattr(-,root,root,-)
-/V3/usr/bin/animate
-/V3/usr/bin/compare
-/V3/usr/bin/composite
-/V3/usr/bin/conjure
-/V3/usr/bin/convert
-/V3/usr/bin/display
-/V3/usr/bin/identify
-/V3/usr/bin/import
 /V3/usr/bin/magick
-/V3/usr/bin/magick-script
-/V3/usr/bin/mogrify
-/V3/usr/bin/montage
-/V3/usr/bin/stream
 /usr/bin/Magick++-config
 /usr/bin/MagickCore-config
 /usr/bin/MagickWand-config
@@ -251,9 +239,6 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libMagick++-7.Q16HDRI.so
-/V3/usr/lib64/libMagickCore-7.Q16HDRI.so
-/V3/usr/lib64/libMagickWand-7.Q16HDRI.so
 /usr/include/ImageMagick-7/Magick++.h
 /usr/include/ImageMagick-7/Magick++/Blob.h
 /usr/include/ImageMagick-7/Magick++/CoderInfo.h
@@ -742,11 +727,8 @@ install www/source/magic.xml %{buildroot}/usr/share/ImageMagick-7/magic.xml
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libMagick++-7.Q16HDRI.so.5
 /V3/usr/lib64/libMagick++-7.Q16HDRI.so.5.0.0
-/V3/usr/lib64/libMagickCore-7.Q16HDRI.so.10
 /V3/usr/lib64/libMagickCore-7.Q16HDRI.so.10.0.1
-/V3/usr/lib64/libMagickWand-7.Q16HDRI.so.10
 /V3/usr/lib64/libMagickWand-7.Q16HDRI.so.10.0.1
 /usr/lib64/libMagick++-7.Q16HDRI.so.5
 /usr/lib64/libMagick++-7.Q16HDRI.so.5.0.0
