@@ -7,7 +7,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.1.9
-Release  : 275
+Release  : 276
 URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz
 Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz
 Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz.asc
