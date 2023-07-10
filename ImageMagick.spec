@@ -7,7 +7,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.1.9
-Release  : 276
+Release  : 277
 URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz
 Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz
 Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-9.tar.xz.asc
@@ -130,8 +130,8 @@ man components for the ImageMagick package.
 %prep
 %setup -q -n ImageMagick-7.1.1-9
 cd %{_builddir}/ImageMagick-7.1.1-9
-%patch1 -p1
-%patch2 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
 pushd ..
 cp -a ImageMagick-7.1.1-9 buildavx2
 popd
@@ -141,7 +141,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685552926
+export SOURCE_DATE_EPOCH=1688952519
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -173,7 +173,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1685552926
+export SOURCE_DATE_EPOCH=1688952519
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
 cp %{_builddir}/ImageMagick-7.1.1-9/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/1e9541045365ca92e2d6c29a56df7616fa6cf49d || :
