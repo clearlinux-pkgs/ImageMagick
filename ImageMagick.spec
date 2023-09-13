@@ -7,7 +7,7 @@
 #
 Name     : ImageMagick
 Version  : 7.1.1.12
-Release  : 280
+Release  : 281
 URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-12.tar.xz
 Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-12.tar.xz
 Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-12.tar.xz.asc
