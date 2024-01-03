@@ -88,8 +88,8 @@ Configure miss: vfprintf_l
 Configure miss: vfprintf_l
 Configure miss: vsnprintf_l
 Configure miss: vsnprintf_l
-Configure miss: whether our compiler supports __func__... checking whether closedir returns void
-Configure miss: whether our compiler supports __func__... checking whether closedir returns void
+Configure miss: whether _OPENMP is declared
+Configure miss: whether _OPENMP is declared
 Configure miss: wingdi.h
 Configure miss: wingdi.h
 Configure miss: winuser.h
