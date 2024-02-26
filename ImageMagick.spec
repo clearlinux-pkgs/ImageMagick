@@ -8,11 +8,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.1.1.28
-Release  : 286
-URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-28.tar.xz
-Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-28.tar.xz
-Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-28.tar.xz.asc
+Version  : 7.1.1.29
+Release  : 287
+URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-29.tar.xz
+Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-29.tar.xz
+Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-29.tar.xz.asc
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
 License  : MIT
@@ -131,11 +131,11 @@ man components for the ImageMagick package.
 
 
 %prep
-%setup -q -n ImageMagick-7.1.1-28
-cd %{_builddir}/ImageMagick-7.1.1-28
+%setup -q -n ImageMagick-7.1.1-29
+cd %{_builddir}/ImageMagick-7.1.1-29
 %patch -P 1 -p1
 pushd ..
-cp -a ImageMagick-7.1.1-28 buildavx2
+cp -a ImageMagick-7.1.1-29 buildavx2
 popd
 
 %build
@@ -143,7 +143,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707765706
+export SOURCE_DATE_EPOCH=1708963869
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -197,12 +197,12 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1707765706
+export SOURCE_DATE_EPOCH=1708963869
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.1.1-28/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
-cp %{_builddir}/ImageMagick-7.1.1-28/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
-cp %{_builddir}/ImageMagick-7.1.1-28/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
+cp %{_builddir}/ImageMagick-7.1.1-29/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
+cp %{_builddir}/ImageMagick-7.1.1-29/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
+cp %{_builddir}/ImageMagick-7.1.1-29/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
 export GOAMD64=v2
 GOAMD64=v3
 pushd ../buildavx2/

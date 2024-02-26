@@ -1,6 +1,7 @@
 # This file contains recursive sources that require this package
 awesome-wm
 digikam
+giflib
 inkscape
 postgis
 xastir
