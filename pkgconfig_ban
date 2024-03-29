@@ -10,3 +10,4 @@ libheif
 libjxl
 libjxl_threads
 MagickCache
+liblzma

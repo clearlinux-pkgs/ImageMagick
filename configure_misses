@@ -62,6 +62,8 @@ Configure miss: libheif >= 1.4.0
 Configure miss: libheif >= 1.4.0
 Configure miss: libjxl >= 0.7.0 libjxl_threads
 Configure miss: libjxl >= 0.7.0 libjxl_threads
+Configure miss: liblzma >= 2.9.0
+Configure miss: liblzma >= 2.9.0
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: libopenjp2 >= 2.1.0
 Configure miss: linker lazyload option
