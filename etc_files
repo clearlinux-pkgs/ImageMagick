@@ -1,5 +1,5 @@
-/builddir/build/BUILDROOT/ImageMagick-7.1.1.30-289.x86_64/etc/:
-/builddir/build/BUILDROOT/ImageMagick-7.1.1.30-289.x86_64/etc/ImageMagick-7:
+/etc/:
+/etc/ImageMagick-7:
 ImageMagick-7
 colors.xml
 delegates.xml
