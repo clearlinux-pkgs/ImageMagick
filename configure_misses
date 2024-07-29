@@ -56,6 +56,8 @@ Configure miss: jbg_dec_init in -ljbig
 Configure miss: jbg_dec_init in -ljbig
 Configure miss: jbig.h
 Configure miss: jbig.h
+Configure miss: jpeg_simple_lossless
+Configure miss: jpeg_simple_lossless
 Configure miss: lcms2/lcms2.h
 Configure miss: lcms2/lcms2.h
 Configure miss: libheif >= 1.4.0
