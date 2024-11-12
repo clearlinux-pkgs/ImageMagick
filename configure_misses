@@ -10,8 +10,10 @@ Configure miss: MagickCache >= 0.9.3
 Configure miss: MagickCache >= 0.9.3
 Configure miss: OS.h
 Configure miss: OS.h
-Configure miss: URW-base35 fonts directory
-Configure miss: URW-base35 fonts directory
+Configure miss: URW-base35 OTF fonts directory
+Configure miss: URW-base35 OTF fonts directory
+Configure miss: URW-base35 Type1 fonts directory
+Configure miss: URW-base35 Type1 fonts directory
 Configure miss: Windows fonts directory
 Configure miss: Windows fonts directory
 Configure miss: _NSGetExecutablePath
@@ -36,6 +38,8 @@ Configure miss: directio
 Configure miss: directio
 Configure miss: g++ option to enable C++11 features
 Configure miss: g++ option to enable C++11 features
+Configure miss: gcc option to enable large file support
+Configure miss: gcc option to enable large file support
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gs

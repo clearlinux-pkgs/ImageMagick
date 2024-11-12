@@ -11,6 +11,7 @@ thresholds.xml
 type-apple.xml
 type-dejavu.xml
 type-ghostscript.xml
+type-urw-base35-type1.xml
 type-urw-base35.xml
 type-windows.xml
 type.xml
