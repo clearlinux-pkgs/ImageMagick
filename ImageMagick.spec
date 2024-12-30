@@ -8,11 +8,11 @@
 # Source0 file verified with key 0x89AB63D48277377A (lexie.parsimoniae@imagemagick.org)
 #
 Name     : ImageMagick
-Version  : 7.1.1.41
-Release  : 303
-URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-41.tar.gz
-Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-41.tar.gz
-Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-41.tar.gz.asc
+Version  : 7.1.1.43
+Release  : 304
+URL      : https://imagemagick.org/archive/ImageMagick-7.1.1-43.tar.gz
+Source0  : https://imagemagick.org/archive/ImageMagick-7.1.1-43.tar.gz
+Source1  : https://imagemagick.org/archive/ImageMagick-7.1.1-43.tar.gz.asc
 Source2  : 89AB63D48277377A.pkey
 Summary  : ImageMagick - convert, edit, and compose images (ABI @MAGICK_ABI_SUFFIX@)
 Group    : Development/Tools
@@ -138,11 +138,11 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) 89AB63D48277377A' gpg.status
-%setup -q -n ImageMagick-7.1.1-41
-cd %{_builddir}/ImageMagick-7.1.1-41
+%setup -q -n ImageMagick-7.1.1-43
+cd %{_builddir}/ImageMagick-7.1.1-43
 %patch -P 1 -p1
 pushd ..
-cp -a ImageMagick-7.1.1-41 buildavx2
+cp -a ImageMagick-7.1.1-43 buildavx2
 popd
 
 %build
@@ -150,7 +150,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1731946901
+export SOURCE_DATE_EPOCH=1735597415
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -204,12 +204,12 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1731946901
+export SOURCE_DATE_EPOCH=1735597415
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ImageMagick
-cp %{_builddir}/ImageMagick-7.1.1-41/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
-cp %{_builddir}/ImageMagick-7.1.1-41/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
-cp %{_builddir}/ImageMagick-7.1.1-41/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
+cp %{_builddir}/ImageMagick-7.1.1-43/Magick++/LICENSE %{buildroot}/usr/share/package-licenses/ImageMagick/e35708150f9609098e95bf25b6b5d4908f999666 || :
+cp %{_builddir}/ImageMagick-7.1.1-43/NOTICE %{buildroot}/usr/share/package-licenses/ImageMagick/023310790971bdf976590c24416fcb00ec9785ec || :
+cp %{_builddir}/ImageMagick-7.1.1-43/www/Magick++/COPYING %{buildroot}/usr/share/package-licenses/ImageMagick/9fbc78241e625956288a5ef6797d540b58197565 || :
 export GOAMD64=v2
 GOAMD64=v3
 pushd ../buildavx2/
